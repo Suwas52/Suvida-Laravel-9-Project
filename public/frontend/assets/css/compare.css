@@ -1,0 +1,154 @@
+.wrapper{
+    width: 100%;
+    height: 804px;
+    padding: 5%;
+    background: #F4F4F4;
+    }
+    .wrapper h1{
+      font-family: 'Poppins', sans-serif;
+      color: #ed563b;
+      padding-bottom: 40px;
+      text-align: center;
+      font-size: 36px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1px;
+    
+    }
+ 
+    
+    
+    .AddCircle{
+      width: 135px;
+      height: 135px;
+      margin: 20px auto;
+      
+    }
+    .circle{
+      width: 200px;
+      height: 200px;
+      background:#FFFF;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      border: 1px dashed #97999B;
+    }
+    .plus{
+      height: 35px;
+      width: 35px;
+      margin: 39px auto;
+    
+    }
+    
+    .Add-text{
+      align-items: center;
+      height: 30px;
+      width: 100px;
+      margin: 20px 0px 0px 126px;
+      text-align: center;
+    }
+    .Add-text p{
+      font-size: 16px;
+    }
+    .drop-down{
+      height: 50px;
+      width: 90%;
+      margin: 60px auto;
+    }
+    .dropdown{
+      text-align: center;
+    }
+
+    /* specification table */
+.spec-wrapper
+{
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 465px;
+  background-color: #FFFF;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+#specifiaction-table{
+  margin-top: 45px;
+  padding: 20px 0px 0px 80px;
+}
+.spec-text{
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  margin: 50px  0px  60px 0px;
+
+}
+.spec-text h1{
+  font-family: 'Poppins', sans-serif;
+  color: #ed563b;
+  padding-bottom: 60px;
+  text-align: center;
+  font-size: 36px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.ratinStar{
+  height: 30px;
+  width: 30px;
+  background-color: #1e1e1e;
+}
+.checked {
+  color: orange;
+}
+.dot1 {
+  height: 25px;
+  width: 25px;
+  background-color: blue;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot2 {
+  height: 25px;
+  width: 25px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot3 {
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot4 {
+  height: 25px;
+  width: 25px;
+  background-color: grey;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot5 {
+  height: 25px;
+  width: 25px;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot6 {
+  height: 25px;
+  width: 25px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#more {display: none;}
+
+.spec-wrapper2
+{
+  max-width: 1100px;
+  margin: 0px 0px 40px 115px;
+  height: 185px;
+  background-color: #FFFF;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
