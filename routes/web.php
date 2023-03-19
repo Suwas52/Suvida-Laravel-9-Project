@@ -55,7 +55,15 @@ Route::middleware('auth','role:user')->group(function() {
             Route::post('/add/prebook','AddPrebook')->name('add.prebook');
             
     });
-        //end preBooking
+    //end preBooking
+
+    //TestRide 
+    Route::controller(TestRideController::class)->group(function(){
+        Route::get('/test/ride','TestRide')->name('test.ride');
+        Route::post('/add/test/ride','AddTestRide')->name('add.test.ride');
+        
+    });
+    //end TestRide
     
     
     //user only contact to admin 
@@ -169,7 +177,21 @@ Route::middleware('auth','role:admin')->group(function() {
     Route::get('/all/users',[AdminController::class,'AllUsers'])->name('all.users');
 
     
-    Route::get('prebook',[PreBookingController::class,'showPrebook'])->name('showPrebook');
+    Route::controller(PreBookingController::class)->group(function(){
+        Route::get('/prebook','showPrebook')->name('showPrebook');
+        Route::get('/prebook/verify/{id}','PrebookVerify')->name('prebook.verify');
+        Route::get('/prebook/reject/{id}','PrebookReject')->name('prebook.reject');
+    });
+
+    Route::controller(TestRideController::class)->group(function(){
+        Route::get('/all/testride/user','TestRiderUser')->name('all.testride.user');
+        Route::get('/testride/verify/{id}','TestRideVerify')->name('testride.verify');
+        Route::get('/testride/reject/{id}','TestRideReject')->name('testride.reject');
+        
+        
+    });
+
+    
 
 });
 
@@ -199,11 +221,7 @@ Route::controller(IndexController::class)->group(function(){
 });
 
 
-Route::controller(TestRideController::class)->group(function(){
-    Route::get('/test/ride','TestRide')->name('test.ride');
-    Route::post('/add/test/ride','AddTestRide')->name('add.test.ride');
-    
-});
+
 
 Route::controller(FilterController::class)->group(function(){
     Route::get('/all/filter/bikes&scooters','FilterBikesAndScooters')->name('all.filter.bikes&scooters');

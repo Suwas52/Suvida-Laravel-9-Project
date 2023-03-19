@@ -44,4 +44,30 @@ class TestRideController extends Controller
 
         return redirect()->route('dashboard')->with($notification);
     }
+
+
+    public function TestRiderUser(){
+        $all_testrider = TestRide::latest()->get();
+        return view('Backend.TestRide.all_testrider',compact('all_testrider'));
+    }
+
+    public function TestRideVerify($id){
+        TestRide::where('id',$id)->update(['status'=>'Verified']);
+        $notification = array(
+            'message' => 'TestRide Verified Success',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function TestRideReject($id){
+        TestRide::where('id',$id)->update(['status'=>'Rejected']);
+        $notification = array(
+            'message' => 'TestRide Rejected Success',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }

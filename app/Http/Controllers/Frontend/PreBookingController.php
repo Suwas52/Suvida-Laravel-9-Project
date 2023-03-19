@@ -50,4 +50,26 @@ class PreBookingController extends Controller
        $prebook = PreBooking::latest()->get();
         return view('Backend.Prebooking.show_prebooking',compact('prebook'));
     }
+
+    public function PrebookVerify($id){
+       
+        PreBooking::where('id',$id)->update(['status'=>'Verified']);
+        $notification = array(
+            'message' => 'PreBooking Verified Successful',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function PrebookReject($id){
+        PreBooking::where('id',$id)->update(['status'=>'Rejected']);
+        
+        $notification = array(
+            'message' => 'PreBooking Rejected Success',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }

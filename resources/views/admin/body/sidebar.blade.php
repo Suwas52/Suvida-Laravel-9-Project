@@ -49,6 +49,9 @@
                 <li>
                     <a href="{{route('showPrebook')}}"> <i class="menu-icon fa-solid fa-users"></i>Prebookings</a>
                 </li>
+                <li>
+                    <a href="{{route('all.testride.user')}}"> <i class="menu-icon fa-solid fa-users"></i>TestRide</a>
+                </li>
 
                
 

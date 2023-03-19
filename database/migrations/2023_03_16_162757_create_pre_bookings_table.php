@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('address');
             $table->dateTime('prebook_time');
             $table->string('model_color');
-            $table->integer('status')->default(0);
+            $table->Pending('status')->default('Pending');
             $table->timestamps();
         });
     }

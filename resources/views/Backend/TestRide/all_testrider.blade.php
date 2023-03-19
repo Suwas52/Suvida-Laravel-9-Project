@@ -1,3 +1,4 @@
+
 @extends('admin.admin_dashboard')
 @section('content')
 <div class="breadcrumbs">
@@ -46,30 +47,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($prebook as $key => $user_prebook)
+                                @foreach ($all_testrider as $key => $testrider)
                                 <tr>
                                     <td class="serial">{{$key+1}}.</td>
                                     <td class="avatar">
                                         <div class="round-img">
                                             <a href="#"><img class="rounded-circle"
-                                                    src="{{ url('upload/userImages/' . $user_prebook->userId->photo) }}"
+                                                    src="{{ url('upload/userImages/' . $testrider->userId->photo) }}"
                                                     alt="" height="50px" width="50px"></a>
                                         </div>
                                     </td>
-                                    <td> <span class="name">{{$user_prebook['userId']['name']}}</span> </td>
-                                    <td> <span class="product">{{$user_prebook['bikeId']['model_name']}}</span>
+                                    <td> <span class="name">{{$testrider['userId']['name']}}</span> </td>
+                                    <td> <span class="product">{{$testrider['bikeId']['model_name']}}</span>
                                     </td>
-                                    <td> <span class="product">{{$user_prebook->created_at}}</span>
+                                    <td> <span class="product">{{$testrider->created_at}}</span>
                                     </td>
 
                                     <td>
-                                        @if($user_prebook->status == "Pending")
-                                                <a href="{{route('prebook.verify',$user_prebook->id)}}"><span
+                                        @if($testrider->status == "Pending")
+                                                <a href="{{route('testride.verify',$testrider->id)}}"><span
                                                     class="badge badge-primary">Verify</span></a>
-                                                <a href="{{route('prebook.reject',$user_prebook->id)}}"><span
+                                                <a href="{{route('testride.reject',$testrider->id)}}"><span
                                                         class="badge badge-danger">Reject</span></a>
                                             
-                                        @elseif($user_prebook->status == "Rejected")
+                                        @elseif($testrider->status == "Rejected")
 
                                         <a ><span
                                             class="badge badge-danger">Rejected</span></a>

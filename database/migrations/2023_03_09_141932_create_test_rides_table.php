@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('address');
             $table->dateTime('book_time');
-            $table->integer('status')->default(0);
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }

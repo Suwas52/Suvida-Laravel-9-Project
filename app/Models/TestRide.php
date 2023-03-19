@@ -9,4 +9,13 @@ class TestRide extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function userId(){
+        return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function bikeId(){
+        return $this->belongsTo(VehicleModel::class,'bike_id');
+    }
+
 }
