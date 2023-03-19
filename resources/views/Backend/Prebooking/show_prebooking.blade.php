@@ -38,15 +38,46 @@
                             <thead>
                                 <tr>
                                     <th>SN</th>
-                                    <th>User</th>
-                                    <th>User Image</th>
+                                    <th>Image</th>
+                                    <th>User Name</th>
                                     <th>Bike</th>
                                     <th>Date</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($prebook as $item)
-                                
+                                @foreach ($prebook as $key => $user_prebook)
+                                <tr>
+                                    <td class="serial">{{$key+1}}.</td>
+                                    <td class="avatar">
+                                        <div class="round-img">
+                                            <a href="#"><img class="rounded-circle"
+                                                    src="{{ url('upload/userImages/' . $user_prebook->userId->photo) }}"
+                                                    alt="" height="50px" width="50px"></a>
+                                        </div>
+                                    </td>
+                                    <td> <span class="name">{{$user_prebook['userId']['name']}}</span> </td>
+                                    <td> <span class="product">{{$user_prebook['bikeId']['model_name']}}</span>
+                                    </td>
+                                    <td> <span class="product">{{$user_prebook->created_at}}</span>
+                                    </td>
+
+                                    <td>
+                                        @if($user_prebook->status == '1')
+
+                                        <a href=""><span
+                                                class="badge badge-complete">Complete</span></a>
+                                        @else
+
+                                        <a href=""><span
+                                                class="badge badge-success">Verify</span></a>
+                                        <a href=""><span
+                                                class="badge badge-danger">Reject</span></a>
+
+                                        @endif
+
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
