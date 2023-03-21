@@ -20,29 +20,52 @@ class PreBookingController extends Controller
 
     public function AddPrebook(Request $request){
 
-        $prebookDateTime = Carbon::createFromFormat('Y-m-d\TH:i', $request->prebook_time);
+       
+        $all_prebook = PreBooking::latest()->get();
 
-        PreBooking::insert([
-            'user_id'=>auth()->user()->id,
-            'model_id'=>$request->model_id,
-            'first_name'=>$request->first_name,
-            'last_name'=>$request->last_name,
-            'email'=>$request->email,
-            'phone_no'=>$request->phone_no,
-            'zone'=>$request->zone,
-            'district'=>$request->district,
-            'city'=>$request->city,
-            'address'=>$request->address,
-            'model_color'=>$request->model_color,
-            'prebook_time'=>$prebookDateTime,
-            'created_at' => Carbon::now(),
-        ]);
-        $notification = array(
-            'message' => 'PreBooking Successful',
-            'alert-type' => 'success'
-        );
+        if($all_prebook->count() >= 8){
+            $notification = array(
+                'message' => 'Limited Prebooking is completed so Next Time Come Fast',
+                'alert-type' => 'error'
+            );
+    
+            return redirect()->back()->with($notification);
+        }else {
+            $prebookDateTime = Carbon::createFromFormat('Y-m-d\TH:i', $request->prebook_time);
 
-        return redirect()->route('dashboard')->with($notification);
+            if($prebookDateTime<now()){
+                $notification = array(
+                    'message' => 'PreBooking This time is not available ',
+                    'alert-type' => 'error'
+                );
+        
+                return redirect()->back()->with($notification);
+            }
+    
+            PreBooking::insert([
+                'user_id'=>auth()->user()->id,
+                'model_id'=>$request->model_id,
+                'first_name'=>$request->first_name,
+                'last_name'=>$request->last_name,
+                'email'=>$request->email,
+                'phone_no'=>$request->phone_no,
+                'zone'=>$request->zone,
+                'district'=>$request->district,
+                'city'=>$request->city,
+                'address'=>$request->address,
+                'model_color'=>$request->model_color,
+                'prebook_time'=>$prebookDateTime,
+                'created_at' => Carbon::now(),
+            ]);
+            $notification = array(
+                'message' => 'PreBooking Successful',
+                'alert-type' => 'success'
+            );
+    
+            return redirect()->route('dashboard')->with($notification);
+        }
+        
+      
     }
 
     public function showPrebook(){

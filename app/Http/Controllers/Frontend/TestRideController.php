@@ -18,6 +18,15 @@ class TestRideController extends Controller
 
         $bookingDateTime = Carbon::createFromFormat('Y-m-d\TH:i', $request->book_time);
 
+        if($bookingDateTime<=now()){
+            $notification = array(
+                'message' => 'You cannot booking this  time  ',
+                'alert-type' => 'error'
+            );
+    
+            return redirect()->back()->with($notification);
+        }
+
         
         $models= $request->model_name;
         $model = VehicleModel::where('model_name',$models)->first();

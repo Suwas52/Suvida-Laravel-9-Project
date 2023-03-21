@@ -63,7 +63,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('price');
             $table->integer('offer')->nullable();
-            $table->integer('status')->default(0);
+            $table->integer('status');
             $table->timestamps();
         });
     }

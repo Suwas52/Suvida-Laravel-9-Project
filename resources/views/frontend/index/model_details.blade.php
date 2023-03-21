@@ -142,7 +142,7 @@
             </ul>
             <ul class="nav p-0">
                 <li class="ul-bike " style="font-size: 13px;  ">
-                    <a href="" style=" color:black;">Home <span>></span></a>
+                    <a href="{{route('main')}}" style=" color:black;">Home <span>></span></a>
                 </li>
 
 
@@ -150,7 +150,7 @@
 
 
                 <li class="ul-bike " style="font-size: 13px;">
-                    <a href="" style=" color:black;">{{$models['brand']['brand_name']}} <span>></span></a>
+                    <a href="{{ url('/brand/'.$models['brand']['id'].'/'.$models['brand']['brand_slug'] )}}" style=" color:black;">{{$models['brand']['brand_name']}} <span>></span></a>
                 </li>
 
             </ul>
