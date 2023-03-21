@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth','role:user')->group(function() {
+Route::middleware('auth','role:user','verified')->group(function() {
     Route::get('/dashboard',[UserController::class,'UserDashboard'])->name('dashboard');
     Route::post('/user/profile/store',[UserController::class,'UserProfileStore'])->name('user.profile.store');
     Route::post('/user/password/update',[UserController::class,'UserPasswordUpdate'])->name('user.password.update');

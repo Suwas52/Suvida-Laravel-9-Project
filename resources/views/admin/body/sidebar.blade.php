@@ -47,10 +47,10 @@
                     <a href="{{route('all.users')}}"> <i class="menu-icon fa-solid fa-users"></i>Users</a>
                 </li>
                 <li>
-                    <a href="{{route('showPrebook')}}"> <i class="menu-icon fa-solid fa-users"></i>Prebookings</a>
+                    <a href="{{route('showPrebook')}}"> <i class="menu-icon fa-solid fa-bookmark"></i>Prebookings</a>
                 </li>
                 <li>
-                    <a href="{{route('all.testride.user')}}"> <i class="menu-icon fa-solid fa-users"></i>TestRide</a>
+                    <a href="{{route('all.testride.user')}}"> <i class="menu-icon fa-solid fa-person-biking"></i>TestRide</a>
                 </li>
 
                

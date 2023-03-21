@@ -67,6 +67,7 @@ class UserController extends Controller
         ]);
         
         if(!Hash::check($request->old_password,Auth::user()->password)){
+            
             return back()->with("error","Old Password doesn't Matched");
         }
 
