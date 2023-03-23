@@ -882,4 +882,30 @@ $(document).ready(function() {
 });
 </script>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select[name="vehicle_id"]').on('change', function() {
+            var vehicle_id = $(this).val();
+            if (vehicle_id) {
+                $.ajax({
+                    url: " {{ url('/category/ajax') }}/" + vehicle_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="category_id"]').html('');
+                        var d = $('select[name="category_id"]').empty();
+                        $.each(data, function(key, value) {
+                            $('select[name="category_id"]').append(
+                                '<option value="' + value.id + '">' + value
+                                .category_name + '</option>');
+                        });
+                    },
+                });
+            } else {
+                alert('danger');
+            }
+        });
+    });
+    </script>
+
 @endsection

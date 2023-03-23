@@ -37,12 +37,13 @@
                             <thead>
                                 <tr>
                                     <th>SN</th>
-                                    <th>Vehicle  </th>
+                                    
                                     <th> Model </th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Launch Date</th>
                                     <th>Limit No</th>
+                                    <th>Action</th>
                                     
                                 </tr>
                             </thead>
@@ -50,9 +51,7 @@
                                 @foreach ($prebook_setup as $key => $setup)
                                 <tr>
                                     <td class="serial">{{$key+1}}.</td>
-                                    <td>
-                                        {{$setup['vehicle']['vehicle_name']}}
-                                    </td>
+                                    
                                     <td>
                                         {{$setup['model']['model_name']}}
                                     </td>
@@ -68,6 +67,14 @@
                                     </td>
                                     <td>
                                         {{$setup->limit_no}}
+                                    </td>
+                                    <td>
+                                        <a href="{{route('edit.prebook.setup',$setup->id)}}" class="btn btn-primary"
+                                            title="Edit-Data"><span class="fa-solid fa-pen-to-square"></span></a>
+                                        <a href="{{route('delete.prebook.setup',$setup->id)}}" class="btn btn-danger"
+                                            title="Delete-Data"><span class="fa-solid fa-delete-left"></span></a>
+                                       
+
                                     </td>
                                     
                                  
