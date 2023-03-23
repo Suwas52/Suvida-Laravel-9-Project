@@ -240,10 +240,7 @@
                                                 <label for="category_id" class="form-label">Category Name</label>
                                                 <select name="category_id" class="form-control mb-3" id="category_id">
                                                     <option>Select Category</option>
-                                                    @foreach($categories as $category)
-                                                    <option value="{{$category->id}}">{{$category->category_name}}
-                                                    </option>
-                                                    @endforeach
+                                                    
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
@@ -745,6 +742,33 @@ $(document).ready(function() {
 
         } else {
             alert("Your browser doesn't support File API!"); //if File API is absent
+        }
+    });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('select[name="vehicle_id"]').on('change', function() {
+        var vehicle_id = $(this).val();
+        if (vehicle_id) {
+            $.ajax({
+                url: " {{ url('/category/ajax') }}/" + vehicle_id,
+                type: "GET",
+                dataType: "json",
+                success: function(data) {
+                    $('select[name="category_id"]').html('');
+                    var d = $('select[name="category_id"]').empty();
+                    $.each(data, function(key, value) {
+                        $('select[name="category_id"]').append(
+                            '<option value="' + value.id + '">' + value
+                            .category_name + '</option>');
+                    });
+                },
+            });
+        } else {
+            alert('danger');
         }
     });
 });

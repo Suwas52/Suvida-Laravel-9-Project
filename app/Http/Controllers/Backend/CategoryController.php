@@ -67,4 +67,11 @@ class CategoryController extends Controller
   
           return redirect()->back()->with($notification);
     }
+
+    
+
+    public function GetCategory($vehicle_id){
+        $cat = Category::where('vehicle_id',$vehicle_id)->orderBy('category_name','ASC')->get();
+        return json_encode($cat);
+    }
 }

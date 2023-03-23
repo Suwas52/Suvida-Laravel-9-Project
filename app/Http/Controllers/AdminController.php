@@ -137,4 +137,5 @@ class AdminController extends Controller
         return view('Backend.Users.all_users',compact('users'));
     }
 
+
 }

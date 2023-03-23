@@ -12,7 +12,9 @@ use App\Models\MultiImage;
 use App\Models\Rating;
 use App\Models\Review;
 use App\Models\User;
+use App\Models\PrebookSetup;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class IndexController extends Controller
 
@@ -39,13 +41,52 @@ class IndexController extends Controller
         $category_4= Category::skip(3)->first();
         $category_4_model = VehicleModel::where('category_id',$category_4->id)->orderBy('model_name','ASC')->get();
 
-        
+        $nowtime = Carbon::now();
 
-        
+       $prebook= PrebookSetup::get();
+        foreach($prebook as $book)
+        {
+          $a=  VehicleModel::where('id',$book->model_id)->first();
+    
+            $b= Category::where('id',$a->category_id)->where('category_name','Upcoming')->first();
+            
+            //Bike Vehicle
+            $bike = Vehicle::where('vehicle_name','Bike')->first();
 
-        
-       
-   
+            //Scooter Vehicle
+            $scooter = Vehicle::where('vehicle_name','Scooter')->first();
+            
+            
+            //latest Bike Category
+            $latest_bike = Category::where('vehicle_id',$bike->id)->where('category_name','Latest')->first();
+
+            
+            //Latest Scooter Category
+            $latest_scooter = Category::where('vehicle_id',$scooter->id)->where('category_name','Latest')->first();
+            
+
+         
+            $model_id = VehicleModel::findOrFail($book->model_id)->get();
+            
+            
+            
+            if($nowtime >= $book->end_time)
+            {
+
+              foreach($model_id as $model){
+                  
+                //Updated Upcoming Bike to Latest Bike
+                  $update_id = VehicleModel::where('id',$model->id)->update([
+                        'category_id'=>$latest_bike->id,
+                    ]);
+              }
+                
+
+             
+               
+            };
+        }
+  
         return view('frontend.index',compact('popular_bikes','category_1','category_1_model','category_2','category_2_model',
         'category_3','category_3_model','category_4','category_4_model','off_road','sport','best_mileage','cruiser','commuter'));
     }

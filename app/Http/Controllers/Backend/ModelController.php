@@ -9,20 +9,28 @@ use App\Models\Brand;
 use App\Models\Vehicle;
 use App\Models\Category;
 use App\Models\MultiImage;
+use App\Models\PrebookSetup;
 use Image;
 use Carbon\Carbon;
 
 class ModelController extends Controller
 {
     public function AllModel(){
-        $models = VehicleModel::latest()->get();
+
+        $models = VehicleModel::all();
+                   
+        
+
+        
+       
         return view('Backend.VehicleModel.all_model',compact('models'));
     }
     public function AddModel(){
+       
         $brands = Brand::latest()->get();
         $vehicles = Vehicle::latest()->get();
-        $categories = Category::latest()->get();
-        return view('Backend.VehicleModel.add_model',compact('brands','vehicles','categories'));
+        
+        return view('Backend.VehicleModel.add_model',compact('brands','vehicles'));
     }
 
     public function StoreModel(Request $request) {
@@ -32,6 +40,7 @@ class ModelController extends Controller
         $save_img_url = 'upload/modelImage/mainImage/'.$img_name_gen;
         
         $category = Category::where('category_name','Upcoming')->first();
+    
         
         if($request->category_id == "$category->id"){
             $model_id = VehicleModel::insertGetId([
@@ -362,8 +371,10 @@ class ModelController extends Controller
     }
 
     public function ModelInactive($id){
-
-        $status_id = VehicleModel::findOrFail($id)->update(['status'=>'0']); 
+        
+        $status_id = VehicleModel::findOrFail($id)->update([
+            'status'=>'0',
+        ]); 
 
         $notification = array(
             'message' => 'Status Inactive Successfully',
@@ -405,4 +416,13 @@ class ModelController extends Controller
         
         return redirect()->back()->with($notification);
     }
+
+    public function GetVehicleModel($vehicle_id){
+        $category = Category::where('vehicle_id',$vehicle_id)->where('category_name','Upcoming')->first();
+        $vehicleModel = VehicleModel::where('category_id',$category->id)->orderBy('model_name','ASC')->get();
+        
+        
+        return json_encode($vehicleModel);
+    }
+
 }
