@@ -65,7 +65,7 @@
 
                         <input type="submit" name="login" value="Login" />
                     </form>
-                    <a href="#" class="a">Forget Password</a>
+                    <a href="{{route('password.request')}}" class="a">Forget Password</a>
                     <h5 class="l5">Sign Up Using</h5>
                     <ul class="lul">
                         <!-- <li>

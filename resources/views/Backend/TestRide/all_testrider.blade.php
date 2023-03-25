@@ -66,7 +66,7 @@
                                     <td>
                                         @if($testrider->status == "Pending")
                                                 <a href="{{route('testride.verify',$testrider->id)}}"><span
-                                                    class="badge badge-primary">Verify</span></a>
+                                                    class="badge badge-primary">Accept</span></a>
                                                 <a href="{{route('testride.reject',$testrider->id)}}"><span
                                                         class="badge badge-danger">Reject</span></a>
                                             
