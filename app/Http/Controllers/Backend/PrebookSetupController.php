@@ -53,7 +53,7 @@ class PrebookSetupController extends Controller
     
             $startTime = Carbon::createFromFormat('Y-m-d\TH:i', $request->start_time);
             $endTime = Carbon::createFromFormat('Y-m-d\TH:i', $request->end_time);  
-            $launchDate = Carbon::createFromFormat('Y-m-d\TH:i', $request->launch_time);  
+            $launchDate = Carbon::createFromFormat('Y-m-d\TH:i', $request->launch_date);  
 
         
             PrebookSetup::insert([

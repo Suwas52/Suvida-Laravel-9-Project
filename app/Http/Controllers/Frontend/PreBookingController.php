@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\PreBooking;
+use App\Models\PrebookSetup;
 use App\Models\VehicleModel;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -20,50 +21,57 @@ class PreBookingController extends Controller
 
     public function AddPrebook(Request $request){
 
+        $prebook_model = $request->model_id;
+        $count_model = PreBooking::where('model_id',$prebook_model)->count();
        
-        $all_prebook = PreBooking::latest()->get();
+        $all_prebookSetup = PreBookSetup::latest()->get();
 
-        if($all_prebook->count() >= 8){
-            $notification = array(
-                'message' => 'Limited Prebooking is completed so Next Time Come Fast',
-                'alert-type' => 'error'
-            );
-    
-            return redirect()->back()->with($notification);
-        }else {
-            $prebookDateTime = Carbon::createFromFormat('Y-m-d\TH:i', $request->prebook_time);
-
-            if($prebookDateTime<now()){
+        foreach($all_prebookSetup as $prebookSetup){
+            
+            if($prebook_model == $prebookSetup->model_id && $count_model >= $prebookSetup->limit_no  ){
                 $notification = array(
-                    'message' => 'PreBooking This time is not available ',
+                    'message' => 'Limited Prebooking is completed so Next Time Come Fast',
                     'alert-type' => 'error'
                 );
         
                 return redirect()->back()->with($notification);
-            }
+            }else {
+                $prebookDateTime = Carbon::createFromFormat('Y-m-d\TH:i', $request->prebook_time);
     
-            PreBooking::insert([
-                'user_id'=>auth()->user()->id,
-                'model_id'=>$request->model_id,
-                'first_name'=>$request->first_name,
-                'last_name'=>$request->last_name,
-                'email'=>$request->email,
-                'phone_no'=>$request->phone_no,
-                'zone'=>$request->zone,
-                'district'=>$request->district,
-                'city'=>$request->city,
-                'address'=>$request->address,
-                'model_color'=>$request->model_color,
-                'prebook_time'=>$prebookDateTime,
-                'created_at' => Carbon::now(),
-            ]);
-            $notification = array(
-                'message' => 'PreBooking Successful',
-                'alert-type' => 'success'
-            );
-    
-            return redirect()->route('dashboard')->with($notification);
+                if($prebook_model == $prebookSetup->model_id && $prebookDateTime >= $prebookSetup->end_time ){
+                    $notification = array(
+                        'message' => 'PreBooking This time is not available ',
+                        'alert-type' => 'error'
+                    );
+            
+                    return redirect()->back()->with($notification);
+                }
+        
+                PreBooking::insert([
+                    'user_id'=>auth()->user()->id,
+                    'model_id'=>$prebook_model,
+                    'first_name'=>$request->first_name,
+                    'last_name'=>$request->last_name,
+                    'email'=>$request->email,
+                    'phone_no'=>$request->phone_no,
+                    'zone'=>$request->zone,
+                    'district'=>$request->district,
+                    'city'=>$request->city,
+                    'address'=>$request->address,
+                    'model_color'=>$request->model_color,
+                    'prebook_time'=>$prebookDateTime,
+                    'created_at' => Carbon::now(),
+                ]);
+                $notification = array(
+                    'message' => 'PreBooking Successful',
+                    'alert-type' => 'success'
+                );
+        
+                return redirect()->route('dashboard')->with($notification);
         }
+    }
+        
+        
         
       
     }
