@@ -34,7 +34,7 @@
                     <form method="post" action="{{route('update.prebook.setup')}}">
                         @csrf
                         
-                        <input type="hidden" name="id" value="{{$editPrebook_setup->id}}">
+                        <input type="hidden" name="id" value="{{$editPrebook->id}}">
 
                         <div class="card-header"><strong>Setup Prebook</strong></div>
                         <div class="card-body card-block">
@@ -47,7 +47,7 @@
                                             
                                             @foreach($vehicles as $vehicle)
                                             <option value="{{$vehicle->id}}"
-                                                {{$vehicle->id ==$editPrebook_setup->vehicle_id ? 'selected' : '' }}>
+                                                {{$vehicle->id ==$editPrebook->vehicle_id ? 'selected' : '' }}>
                                                 {{$vehicle->vehicle_name}}
                                             </option>
                                             @endforeach
@@ -59,7 +59,7 @@
                                             <option>Select Model</option>
                                             @foreach($models as $model)
                                             <option value="{{$model->id}}"
-                                                {{$model->id ==$editPrebook_setup->model_id ? 'selected' : '' }}>
+                                                {{$model->id ==$editPrebook->model_id ? 'selected' : '' }}>
                                                 {{$model->model_name}}
                                             </option>
                                             @endforeach
@@ -74,7 +74,7 @@
                                         </label>
                                         
                                             <input type="datetime-local" class="form-control" id="datetime-local-start" name="start_time"
-                                                value="{{$editPrebook_setup->start_time}}">
+                                                value="{{$editPrebook->start_time}}">
 
                                         
                                     </div>
@@ -83,18 +83,18 @@
                                         </label>
                                         
                                             <input type="datetime-local" class="form-control" id="datetime-local-end" name="end_time"
-                                            value="{{$editPrebook_setup->end_time}}">
+                                            value="{{$editPrebook->end_time}}">
 
                                         
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="datetime-local-end" class="form-control-label">Launch Date
+                                        <label for="launch_date" class="form-control-label">Launch Date
                                         </label>
                                         
-                                            <input type="datetime-local" class="form-control" id="datetime-local-end" name="launch_date"
-                                            value="{{$editPrebook_setup->launch_date}}" >
+                                            <input type="datetime-local" class="form-control" id="launch_date" name="launch_date"
+                                            value="{{$editPrebook->launch_date}}" >
 
                                         
                                     </div>
@@ -103,7 +103,7 @@
                                         </label>
                                         
                                             <input type="text" class="form-control" id="limit_no" name="limit_no"
-                                            value="{{$editPrebook_setup->limit_no}}">
+                                            value="{{$editPrebook->limit_no}}">
 
                                         
                                     </div>

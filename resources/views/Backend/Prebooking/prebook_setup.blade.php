@@ -68,14 +68,20 @@
                                     <td>
                                         {{$setup->limit_no}}
                                     </td>
+                                    
                                     <td>
-                                        <a href="{{route('edit.prebook.setup',$setup->id)}}" class="btn btn-primary"
-                                            title="Edit-Data"><span class="fa-solid fa-pen-to-square"></span></a>
-                                        <a href="{{route('delete.prebook.setup',$setup->id)}}" class="btn btn-danger"
-                                            title="Delete-Data"><span class="fa-solid fa-delete-left"></span></a>
-                                       
-
+                                        @if($setup['model']['category_id'] == $upcoming_bike->id || $setup['model']['category_id'] == $upcoming_scooter->id )
+                                        
+                                            <a href="{{route('edit.prebook.setup',$setup->id)}}" class="btn btn-primary"
+                                                title="Edit-Data"><span class="fa-solid fa-pen-to-square"></span></a>
+                                            <a href="{{route('delete.prebook.setup',$setup->id)}}" class="btn btn-danger"
+                                                title="Delete-Data"><span class="fa-solid fa-delete-left"></span></a>
+                                        @else 
+                                        <a 
+                                            title="Model Launch"><span class="badge badge-success">Launch</span></a>
+                                        @endif
                                     </td>
+                                    
                                     
                                  
                                 </tr>

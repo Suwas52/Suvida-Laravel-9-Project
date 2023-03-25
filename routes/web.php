@@ -194,12 +194,22 @@ Route::middleware('auth','role:admin')->group(function() {
             
         });
 
-        Route::get('/show/prebook/setup',[PrebookSetupController::class,'PrebookSetup'])->name('show.prebooksetup');
-        Route::get('/add/prebook/setup',[PrebookSetupController::class,'AddPrebookSetup'])->name('add.prebook.setup');
-        Route::post('/store/prebook/setup',[PrebookSetupController::class,'StorePrebookSetup'])->name('store.prebook.setup');
-        Route::get('/edit/prebook/setup/{id}',[PrebookSetupController::class,'EditPrebookSetup'])->name('edit.prebook.setup');
-        Route::post('/update/prebook/setup',[PrebookSetupController::class,'UpdatePrebookSetup'])->name('update.prebook.setup');
-        Route::get('/delete/prebook/setup/{id}',[PrebookSetupController::class,'DeletePrebookSetup'])->name('delete.prebook.setup');
+        //Prebook Setup for updating Upcoming to latest and limit bike prebook
+
+        Route::controller(PrebookSetupController::class)->group(function(){
+            Route::get('/show/prebook/setup','PrebookSetup')->name('show.prebooksetup');
+            Route::get('/add/prebook/setup','AddPrebookSetup')->name('add.prebook.setup');
+            Route::post('/store/prebook/setup','StorePrebookSetup')->name('store.prebook.setup');
+            Route::get('/edit/prebook/setup/{id}','EditPrebookSetup')->name('edit.prebook.setup');
+            Route::post('/update/prebook/setup','UpdatePrebookSetup')->name('update.prebook.setup');
+            Route::get('/delete/prebook/setup/{id}','DeletePrebookSetup')->name('delete.prebook.setup');
+            
+            
+        });
+
+        
+
+     
         
         
 

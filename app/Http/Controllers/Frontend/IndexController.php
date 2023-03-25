@@ -21,7 +21,11 @@ class IndexController extends Controller
 {
 
     public function Master(){
+        $bike = Vehicle::where('vehicle_name','Bike')->first();
         
+        $category_upcoming = Category::where('category_name','Upcoming')->where('vehicle_id',$bike->id)->first();
+        
+        $Upcoming_bike = VehicleModel::where('category_id',$category_upcoming->id)->get();
         $category_1 = Category::skip(0)->first();
         $popular_category = Category::where('category_name','Popular')->first();
         $popular_bikes = VehicleModel::where('category_id',$popular_category->id)->orderBy('model_name','ASC')->get();
@@ -41,54 +45,68 @@ class IndexController extends Controller
         $category_4= Category::skip(3)->first();
         $category_4_model = VehicleModel::where('category_id',$category_4->id)->orderBy('model_name','ASC')->get();
 
-        $nowtime = Carbon::now();
+        
+        
 
-       $prebook= PrebookSetup::get();
-        foreach($prebook as $book)
-        {
-          $a=  VehicleModel::where('id',$book->model_id)->first();
-    
-            $b= Category::where('id',$a->category_id)->where('category_name','Upcoming')->first();
-            
-            //Bike Vehicle
-            $bike = Vehicle::where('vehicle_name','Bike')->first();
+       $prebook= PrebookSetup::latest()->get();
+       
+       
 
-            //Scooter Vehicle
-            $scooter = Vehicle::where('vehicle_name','Scooter')->first();
-            
-            
-            //latest Bike Category
-            $latest_bike = Category::where('vehicle_id',$bike->id)->where('category_name','Latest')->first();
+       foreach($prebook as $model)
+       {
+        
+          $nowTime = Carbon::now();
 
-            
-            //Latest Scooter Category
-            $latest_scooter = Category::where('vehicle_id',$scooter->id)->where('category_name','Latest')->first();
-            
-
+          //prebookSetup model
+          $a=  VehicleModel::where('id',$model->model_id)->first();
+        
+          //Bike Vehicle
+          $bike = Vehicle::where('vehicle_name','Bike')->first();
          
-            $model_id = VehicleModel::findOrFail($book->model_id)->get();
-            
-            
-            
-            if($nowtime >= $book->end_time)
-            {
+         
+          //Scooter Vehicle
+          $scooter = Vehicle::where('vehicle_name','Scooter')->first();
 
-              foreach($model_id as $model){
-                  
-                //Updated Upcoming Bike to Latest Bike
-                  $update_id = VehicleModel::where('id',$model->id)->update([
+          //Prebook Setup Upcoming Bike
+           $prebook_upcoming_bike= Category::where('id',$a->category_id)->where('vehicle_id',$bike->id)->where('category_name','Upcoming')->first();
+       
+           //Prebook Setup Upcoming Scooter
+           $prebook_upcoming_scooter= Category::where('id',$a->category_id)->where('vehicle_id',$scooter->id)->where('category_name','Upcoming')->first();
+        
+           
+           //latest Bike Category
+           $latest_bike = Category::where('vehicle_id',$bike->id)->where('category_name','Latest')->first();
+
+           
+           //Latest Scooter Category
+           $latest_scooter = Category::where('vehicle_id',$scooter->id)->where('category_name','Latest')->first();
+               
+           
+           //check whether in prebook_model is upcoming or not
+           if(( $prebook_upcoming_bike || $prebook_upcoming_scooter )  )
+           {
+             
+
+                if($model->vehicle_id == $bike->id  && $nowTime >= $model->launch_date ){
+                    //Updated Upcoming Bike to Latest Bike
+                    $update_id = VehicleModel::where('id',$model->model_id)->update([
                         'category_id'=>$latest_bike->id,
                     ]);
-              }
-                
+                    
+                }else if($model->vehicle_id == $scooter->id && $nowTime >= $model->launch_date ){
+                    //Updated Upcoming scooter to latest scooter 
+                    $update_id = VehicleModel::where('id',$model->model_id)->update([
+                        'category_id'=>$latest_scooter->id,
+                    ]);
+                    
+                }
+              
+           }
+       }
 
-             
-               
-            };
-        }
-  
+        
         return view('frontend.index',compact('popular_bikes','category_1','category_1_model','category_2','category_2_model',
-        'category_3','category_3_model','category_4','category_4_model','off_road','sport','best_mileage','cruiser','commuter'));
+        'category_3','category_3_model','category_4','category_4_model','off_road','sport','best_mileage','cruiser','commuter','Upcoming_bike'));
     }
 
 

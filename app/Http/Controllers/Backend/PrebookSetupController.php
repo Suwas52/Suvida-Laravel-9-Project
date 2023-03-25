@@ -14,10 +14,26 @@ class PrebookSetupController extends Controller
 {
     
     public function PrebookSetup(){
-        $prebook_setup = PrebookSetup::latest()->get();
-       
         
-        return view('Backend.Prebooking.prebook_setup',compact('prebook_setup'));
+        $prebook_setup = PrebookSetup::latest()->get();
+        
+            
+            //Bike Vehicle
+          $bike = Vehicle::where('vehicle_name','Bike')->first();
+
+          //upcoming category of bike
+
+          $upcoming_bike = Category::where('category_name','Upcoming')->where('vehicle_id',$bike->id)->first();
+          
+          
+          //Scooter Vehicle
+          $scooter = Vehicle::where('vehicle_name','Scooter')->first();
+
+          //upcoming category of Vehicle
+          $upcoming_scooter = Category::where('category_name','Upcoming')->where('vehicle_id',$scooter->id)->first();
+
+        
+        return view('Backend.Prebooking.prebook_setup',compact('prebook_setup','upcoming_bike','upcoming_scooter'));
     }
     
     public function AddPrebookSetup(){
@@ -37,7 +53,7 @@ class PrebookSetupController extends Controller
     
             $startTime = Carbon::createFromFormat('Y-m-d\TH:i', $request->start_time);
             $endTime = Carbon::createFromFormat('Y-m-d\TH:i', $request->end_time);  
-            $launchDate = Carbon::createFromFormat('Y-m-d\TH:i', $request->end_time);  
+            $launchDate = Carbon::createFromFormat('Y-m-d\TH:i', $request->launch_time);  
 
         
             PrebookSetup::insert([
@@ -55,7 +71,7 @@ class PrebookSetupController extends Controller
                 'alert-type' => 'success'
             );
     
-            return redirect()->back()->with($notification);
+            return redirect()->route('show.prebooksetup')->with($notification);
        
       
     }//end function
@@ -64,27 +80,27 @@ class PrebookSetupController extends Controller
     public function EditPrebookSetup($id){
         $vehicles = Vehicle::latest()->get();
         $models = VehicleModel::latest()->get();
-        $editPrebook_setup = PrebookSetup::findOrFail($id);
-        return view('Backend.Prebooking.edit_prebook_setup',compact('editPrebook_setup','vehicles','models'));
+        $editPrebook = PrebookSetup::findOrFail($id);
+        return view('Backend.Prebooking.edit_prebook_setup',compact('editPrebook','vehicles','models'));
     }
        
 
     public function UpdatePrebookSetup(Request $request){
-        $prebooksetup_id = $request->id;
+        $prebookSetup = $request->id;
     
-        $startTime = Carbon::createFromFormat('Y-m-d\TH:i', $request->start_time);
-        $endTime = Carbon::createFromFormat('Y-m-d\TH:i', $request->end_time);  
-        $launchDate = Carbon::createFromFormat('Y-m-d\TH:i', $request->end_time);  
+        $start = Carbon::createFromFormat('Y-m-d\TH:i', $request->start_time);
+        $end = Carbon::createFromFormat('Y-m-d\TH:i', $request->end_time);  
+        $launch = Carbon::createFromFormat('Y-m-d\TH:i', $request->launch_date);  
 
     
-        PrebookSetup::findOrFail($prebooksetup_id)->update([
-            'vehicle_id' => $request->vehicle_id,
-            'model_id' => $request->model_id,
-            'start_time' => $startTime,
-            'end_time' => $endTime,
-            'launch_date' => $launchDate,
-            'limit_no' => $request->limit_no,
-            'created_at' => Carbon::now(),
+        PrebookSetup::find($prebookSetup)->update([
+                'vehicle_id' => $request->vehicle_id,
+                'model_id' => $request->model_id,
+                'start_time' => $start,
+                'end_time' => $end,
+                'launch_date' => $launch,
+                'limit_no' => $request->limit_no,
+                'updated_at' => Carbon::now(),
         ]);
 
         $notification = array(
@@ -92,7 +108,7 @@ class PrebookSetupController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->back()->with($notification);
+        return redirect()->route('show.prebooksetup')->with($notification);
    
     }//end function
 

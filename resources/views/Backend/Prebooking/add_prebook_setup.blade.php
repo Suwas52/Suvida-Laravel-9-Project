@@ -70,19 +70,17 @@
                                         <label for="datetime-local-end" class="form-control-label">Prebook End Time
                                         </label>
                                         
-                                            <input type="datetime-local" class="form-control" id="datetime-local-end" name="end_time"
-                                                >
+                                            <input type="datetime-local" class="form-control" id="datetime-local-end" name="end_time">
 
                                         
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="datetime-local-end" class="form-control-label">Launch Date
+                                        <label for="launch_date" class="form-control-label">Launch Date
                                         </label>
                                         
-                                            <input type="datetime-local" class="form-control" id="datetime-local-end" name="launch_date"
-                                                >
+                                            <input type="datetime-local" class="form-control" id="launch_date" name="launch_date">
 
                                         
                                     </div>

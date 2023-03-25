@@ -44,6 +44,10 @@
                                     <a href="#offRoad" data-bs-toggle="tab" id="offRoad-tab" role="tab" aria-controls="offRoad"
                                         area-selected="true" class="nav-link">Off Road Bikes</a>
                                 </li>
+                                <li class="ul-bike nav-item">
+                                    <a href="#upcoming" data-bs-toggle="tab" id="upcoming-tab" role="tab" aria-controls="upcoming"
+                                        area-selected="true" class="nav-link">Upcoming Bikes</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -222,7 +226,6 @@
                         </div>
                         <!-- end div -->
 
-
                         <div class="tab-pane fade show" role="tab-pane" id="cruiser" aria-labelledby="cruiser-tab">
                             <div class="col-12 card">
 
@@ -342,6 +345,60 @@
                                     <div class=" swiper card_slider">
                                         <div class="swiper-wrapper mt-4">
                                             @foreach($off_road as $bike)
+                                            <div class="col-lg-3 mt-2 swiper-slide">
+                                                <div class="trainer-item">
+                                                    <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}"
+                                                        class=" image-thumb">
+                                                        <div><img src="{{asset($bike->model_thumbnail)}}" alt="" />
+                                                        </div>
+                                                    </a>
+                                                    <div class="down-content">
+
+                                                        <div class="bike_name">
+                                                            <a class="title" title="Model Name"
+                                                                href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}">{{$bike->model_name}}
+                                                            </a>
+                                                        </div>
+                                                        <div class="price">
+                                                            <p>Rs. {{$bike->price}} </p>
+                                                        </div>
+
+                                                        <p>
+                                                            <i class="fa fa-dashboard"></i> {{$bike->mileage}} km/hr
+                                                            &nbsp;&nbsp;&nbsp;
+                                                            <i class="fa fa-cube"></i> {{$bike->displacement}} cc
+                                                            &nbsp;&nbsp;&nbsp;
+                                                            <i class="fa fa-cog"></i> {{$bike->emission_type}}
+                                                            &nbsp;&nbsp;&nbsp;
+                                                        </p>
+
+                                                        <ul class="social-icons text-center">
+                                                            <a href="{{ route('booking',$bike->id) }}"
+                                                                class="primaryButton  btn-dcb p-2"
+                                                                style="border:1px solid red"><span><i
+                                                                        class="fa fa-cart-plus">
+                                                                    </i>
+                                                                    Book
+                                                                    Now</a>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show" role="tab-pane" id="upcoming" aria-labelledby="upcoming-tab">
+                            <div class="col-12 card">
+                                <div class="row">
+
+                                    <div class=" swiper card_slider">
+                                        <div class="swiper-wrapper mt-4">
+                                            @foreach($Upcoming_bike as $bike)
                                             <div class="col-lg-3 mt-2 swiper-slide">
                                                 <div class="trainer-item">
                                                     <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}"
