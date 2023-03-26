@@ -65,7 +65,7 @@
                         <!-- Session Status -->
                         <x-auth-session-status class="mb-4 text-success" :status="session('status')" />
                         
-                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Email Password Reset Link" type="submit">
+                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Send Reset Link" type="submit">
                         
                     </form>
                         

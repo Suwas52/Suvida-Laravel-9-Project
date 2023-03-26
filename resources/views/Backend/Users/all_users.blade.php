@@ -25,8 +25,8 @@
                             <thead>
                                 <tr>
                                     <th>SN</th>
-                                    <th>Name</th>
                                     <th>Image</th>
+                                    <th>Name</th>
                                     <th>Email</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -36,13 +36,23 @@
                                 @foreach($users as $key => $user)
                                 <tr>
                                     <td>{{$key+1}}</td>
+                                    <td >
+                                        <img class="rounded-circle" src="{{(!empty($user->photo))?url('upload/userImages/'.$user->photo):url('upload/NoImage.jpg')}}" alt="user" style="height:60px" width="60px">
+                                    </td>
+                                    
                                     <td>{{$user->name}}</td>
-                                    <td><img src="{{ url('upload/userImages/'.$user->photo) }}"
-                                            style="width:60px; height:50px" alt="user">
-                                    </td>
-                                    </td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->status}}</td>
+                                    <td>
+                                        @if($user->UserOnline())
+                                        <span class="badge badge-pill badge-success">Active</span>
+                                        @else
+                                        <span class="badge badge-pill badge-info">{{Carbon\Carbon::parse($user->status_seen)->diffForHumans()}}</span>
+                                        @endif
+                                        
+                                       
+                                    
+                                    </td>
+                                    
                                     <td>
                                         <a href="" class="btn btn-danger">Delete</a>
                                     </td>

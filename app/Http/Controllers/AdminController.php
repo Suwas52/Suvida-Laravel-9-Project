@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
+
 class AdminController extends Controller
 {
 
@@ -33,6 +34,31 @@ class AdminController extends Controller
     public function AdminLogin() {
         return view('admin.admin_login');
     }
+
+    // public function AdminLoginStore(Request $request){
+        
+        
+       
+
+        
+    //     if (Auth::guard('admin')->check()) {
+    //     if(Auth::check() && Auth::user()->role == 'admin'){
+            
+    //         $notification = array(
+    //             'message' => 'Admin Login Successfully',
+    //             'alert-type' => 'success'
+    //         );
+    //         return redirect()->route('admin.dashboard')->with($notification);
+    //     }
+    //     else {
+    //         $notification = array(
+    //             'message' => 'Invalid login Admin',
+    //             'alert-type' => 'success'
+    //         );
+    //         return redirect()->back()->with($notification);
+    //     }
+    // }
+    // }
 
 
     //Admin Profile Update

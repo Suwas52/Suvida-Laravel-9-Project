@@ -31,7 +31,6 @@
 
         <form class="pt-2" id="myForm" method="POST" action="{{ route('login') }}">
             @csrf
-
             <div class="form-group py-3">
                 <label for="inputEmailAddress" class="form-label">Email </label>
                 <div class="input-field ">

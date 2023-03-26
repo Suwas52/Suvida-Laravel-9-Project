@@ -85,7 +85,7 @@
                             <div class="stat-content">
                                 <div class="text-left dib">
                                     <div class="stat-text"><span class="count">{{$totalUsers}}</span></div>
-                                    <div class="stat-heading">Users</div>
+                                    <a href="{{route('all.users')}}" class="stat-heading">Users</a>
                                 </div>
                             </div>
                         </div>

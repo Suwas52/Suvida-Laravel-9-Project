@@ -28,24 +28,32 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        $check = $request->all();
         $request->authenticate();
-
+        
         $request->session()->regenerate();
+        
 
         $url = '';
         
         if($request->user()->role === 'admin'){
+            
             $url = 'admin/dashboard' ;
+            $notification = array(
+                'message' => 'Admin Login Successfully',
+                'alert-type' => 'success'
+            );
         }
         elseif($request->user()->role === 'user'){
             $url = '/dashboard';
+            $notification = array(
+                'message' => 'User Login Successfully',
+                'alert-type' => 'success'
+            );
         }
 
         
-        $notification = array(
-            'message' => 'User Login Successfully',
-            'alert-type' => 'success'
-        );
+        
 
         return redirect()->intended($url)->with($notification);
     }

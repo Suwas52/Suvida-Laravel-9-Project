@@ -22,13 +22,18 @@ class NewslettersController extends Controller
             'emails' => $req->emails
         ]);
 
-        return back();
+        $notification = array(
+            'message' => 'You have been successfully subscribe ',
+            'alert-type'=> 'success' 
+        );
+
+        return back()->with("");
     }
 
     public function deleteEmail($id){
         $emails = Newsletters::find($id);
 
-        Newsletters::find($id)->delete();
+        Newsletters::find($emails)->delete();
 
         return back();
     }
