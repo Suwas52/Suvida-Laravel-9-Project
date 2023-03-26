@@ -163,5 +163,16 @@ class AdminController extends Controller
         return view('Backend.Users.all_users',compact('users'));
     }
 
+    public function DeleteUsers($id){
+        User::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'User Delete Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
 
 }

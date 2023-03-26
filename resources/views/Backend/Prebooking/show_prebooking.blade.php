@@ -6,7 +6,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Bookings</h1>
+                        <h1>All Model Prebook </h1>
                     </div>
                 </div>
             </div>
@@ -15,8 +15,8 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li><a href="{{route('all.category')}}">All Category</a></li>
-                            <li class="active">Add Category</li>
+                            <li class="active">All Model Prebook</li>
+                            
                         </ol>
                     </div>
                 </div>
@@ -49,12 +49,9 @@
                                 @foreach ($prebook as $key => $user_prebook)
                                 <tr>
                                     <td class="serial">{{$key+1}}.</td>
-                                    <td class="avatar">
-                                        <div class="round-img">
-                                            <a href="#"><img class="rounded-circle"
-                                                    src="{{ url('upload/userImages/' . $user_prebook->userId->photo) }}"
-                                                    alt="" height="50px" width="50px"></a>
-                                        </div>
+                                    <td >
+                                        <img class="rounded-circle" src="{{(!empty($user_prebook->userId->photo))?url('upload/userImages/'.$user_prebook->userId->photo):url('upload/NoImage.jpg')}}" alt="user" style="height:50px" width="50px">
+                                       
                                     </td>
                                     <td> <span class="name">{{$user_prebook['userId']['name']}}</span> </td>
                                     <td> <span class="product">{{$user_prebook['bikeId']['model_name']}}</span>

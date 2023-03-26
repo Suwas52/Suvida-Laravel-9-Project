@@ -54,7 +54,7 @@
                                         <a href="{{route('edit.vehicle',$vehicle->id)}}"
                                             class="btn btn-primary"><span class="fa-solid fa-pen-to-square"></span></a>
                                         <a href="{{route('delete.vehicle',$vehicle->id)}}"
-                                            class="btn btn-danger"><span class="fa-solid fa-delete-left"></span></a>
+                                            class="btn btn-danger" id="delete"><span class="fa-solid fa-delete-left"></span></a>
                                     </td>
                                 </tr>
                                 @endforeach

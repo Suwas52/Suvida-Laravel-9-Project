@@ -7,7 +7,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Bookings</h1>
+                        <h1>Model Testride</h1>
                     </div>
                 </div>
             </div>
@@ -16,8 +16,7 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li><a href="{{route('all.category')}}">All Category</a></li>
-                            <li class="active">Add Category</li>
+                            <li class="active">All Model Test Ride </li>
                         </ol>
                     </div>
                 </div>
@@ -32,7 +31,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">All Bookings </strong>
+                        <strong class="card-title">All Model Testride </strong>
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -50,12 +49,9 @@
                                 @foreach ($all_testrider as $key => $testrider)
                                 <tr>
                                     <td class="serial">{{$key+1}}.</td>
-                                    <td class="avatar">
-                                        <div class="round-img">
-                                            <a href="#"><img class="rounded-circle"
-                                                    src="{{ url('upload/userImages/' . $testrider->userId->photo) }}"
-                                                    alt="" height="50px" width="50px"></a>
-                                        </div>
+                                    <td >
+                                        <img class="rounded-circle" src="{{(!empty($testrider->userId->photo))?url('upload/userImages/'.$testrider->userId->photo):url('upload/NoImage.jpg')}}" alt="user" style="height:50px" width="50px">
+                                        
                                     </td>
                                     <td> <span class="name">{{$testrider['userId']['name']}}</span> </td>
                                     <td> <span class="product">{{$testrider['bikeId']['model_name']}}</span>

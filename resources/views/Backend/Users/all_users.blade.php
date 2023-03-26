@@ -6,7 +6,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <strong class="card-title text-center">All Users </strong>
+                        <h1>All Users </h1>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td >
-                                        <img class="rounded-circle" src="{{(!empty($user->photo))?url('upload/userImages/'.$user->photo):url('upload/NoImage.jpg')}}" alt="user" style="height:60px" width="60px">
+                                        <img class="rounded-circle" src="{{(!empty($user->photo))?url('upload/userImages/'.$user->photo):url('upload/NoImage.jpg')}}" alt="user" style="height:50px" width="50px">
                                     </td>
                                     
                                     <td>{{$user->name}}</td>
@@ -54,7 +54,7 @@
                                     </td>
                                     
                                     <td>
-                                        <a href="" class="btn btn-danger">Delete</a>
+                                        <a href="{{route('delete.user',$user->id)}}" class="btn btn-danger" title="Delete-User" id="delete"><span class="fa fa-trash"></a>
                                     </td>
                                 </tr>
                                 @endforeach

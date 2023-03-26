@@ -68,7 +68,7 @@
                                         <a href="{{route('edit.model',$model->id)}}" class="btn btn-primary"
                                             title="Edit-Data"><span class="fa-solid fa-pen-to-square"></span></a>
                                         <a href="{{route('delete.model',$model->id)}}" class="btn btn-danger"
-                                            title="Delete-Data"><span class="fa-solid fa-delete-left"></span></a>
+                                            title="Delete-Data" id="delete"><span class="fa-solid fa-delete-left"></span></a>
                                         <a href="" class="btn btn-info" title="View-Data"><span
                                                 class="fa-solid fa-eye"></span></a>
 

@@ -6,7 +6,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Bookings</h1>
+                        <h1>Model Booking</h1>
                     </div>
                 </div>
             </div>
@@ -15,8 +15,8 @@
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                            <li><a href="{{route('all.category')}}">All Category</a></li>
-                            <li class="active">Add Category</li>
+                            <li class="active">All Model Booking</li>
+                            
                         </ol>
                     </div>
                 </div>
@@ -38,24 +38,40 @@
                             <thead>
                                 <tr>
                                     <th>SN</th>
-                                    <th>User</th>
-                                    <th>User Image</th>
+                                    <th>Image</th>
+                                    <th>User Name</th>
                                     <th>Bike</th>
                                     <th>Date</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($bookings as $item)
+                                @foreach ($bookings as $key => $book)
                                 <tr>
-                                    <td>{{ $loop->index+1 }}</td>
-                                    <td>{{ $item->rUser->name }}</td>
-                                    <td>
+                                    <td class="serial">{{$key+1}}.</td>
+                                    <td >
+                                        <img class="rounded-circle" src="{{(!empty($book->rUser->photo))?url('upload/userImages/'.$book->rUser->photo):url('upload/NoImage.jpg')}}" alt="user" style="height:50px" width="50px">
+                                       
+                                    </td>
+                                    <td> <span class="name">{{$book['rUser']['name']}}</span> </td>
+                                    <td> <span class="product">{{$book['rBike']['model_name']}}</span>
+                                    </td>
+                                    <td> <span class="product">{{$book->created_at}}</span>
+                                    </td>
 
-                                        <img src="{{ url('upload/userImages/' . $item->rUser->photo) }}" width="100">
+                                    <td>
+                                        @if($book->status == '1')
+
+                                        <a href="{{route('remove.verify',$book->id)}}"><span
+                                                class="badge badge-success">Complete</span></a>
+                                        @else
+
+                                        <a href="{{route('booking.verify',$book->id)}}"><span
+                                                class="badge badge-danger">Verify</span></a>
+
+                                        @endif
 
                                     </td>
-                                    <td>{{ $item->rBike->model_name }}</td>
-                                    <td>{{ $item->created_at }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

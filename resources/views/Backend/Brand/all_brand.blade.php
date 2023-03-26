@@ -54,7 +54,7 @@
                                     <td>
                                         <a href="{{route('edit.brand',$item->id)}}" class="btn btn-primary"><span
                                                 class="fa-solid fa-pen-to-square"></span></a>
-                                        <a href="{{route('delete.brand',$item->id)}}" class="btn btn-danger"><span
+                                        <a href="{{route('delete.brand',$item->id)}}" class="btn btn-danger" id="delete"><span
                                                 class="fa-solid fa-delete-left"></span></a>
                                     </td>
                                 </tr>

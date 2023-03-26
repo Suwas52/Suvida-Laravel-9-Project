@@ -75,10 +75,10 @@
                                             <a href="{{route('edit.prebook.setup',$setup->id)}}" class="btn btn-primary"
                                                 title="Edit-Data"><span class="fa-solid fa-pen-to-square"></span></a>
                                             <a href="{{route('delete.prebook.setup',$setup->id)}}" class="btn btn-danger"
-                                                title="Delete-Data"><span class="fa-solid fa-delete-left"></span></a>
+                                                title="Delete-Data" id="delete"><span class="fa fa-trash"></span></a>
                                         @else 
                                         <a 
-                                            title="Model Launch"><span class="badge badge-success">Launch</span></a>
+                                            title="Model Launch"><span class="badge badge-pill badge-success">Launch</span></a>
                                         @endif
                                     </td>
                                     

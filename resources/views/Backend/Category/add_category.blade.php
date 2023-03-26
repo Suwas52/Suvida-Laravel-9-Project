@@ -1,5 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <div class="breadcrumbs">
     <div class="breadcrumbs-inner">
         <div class="row m-0">
@@ -30,7 +31,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <form method="post" action="{{route('store.category')}}">
+                    <form method="post" id="myForm" action="{{route('store.category')}}">
                         @csrf
                         <div class="card-header"><strong>Add Category</strong></div>
                         <div class="card-body card-block">
@@ -65,4 +66,35 @@
         </div>
     </div>
 </div><!-- .content -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#myForm').validate({
+            rules: {
+                
+                category_name: {
+                    required: true,
+                },
+    
+            },
+            messages: {
+                
+                category_name: {
+                    required: 'Please Enter  Category Name',
+                },
+    
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+    </script>
 @endsection

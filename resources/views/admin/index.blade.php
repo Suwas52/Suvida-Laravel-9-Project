@@ -132,9 +132,9 @@
                                             <td class="serial">{{$key+1}}.</td>
                                             <td class="avatar">
                                                 <div class="round-img">
-                                                    <a href="#"><img class="rounded-circle"
-                                                            src="{{ url('upload/userImages/' . $user_book->rUser->photo) }}"
-                                                            alt=""></a>
+                                                    <a href="#">
+                                                            <img class="rounded-circle bg-primary" src="{{(!empty($user_book->rUser->photo))?url('upload/userImages/'.$user_book->rUser->photo):url('upload/NoImage.jpg')}}" alt="user" >
+                                                        </a>
                                                 </div>
                                             </td>
                                             <td> {{$user_book['rUser']['id']}}</td>

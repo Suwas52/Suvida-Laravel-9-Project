@@ -71,7 +71,7 @@ class BookingController extends Controller
         );
         return redirect()->back()->with($notification);
     }
-    public function RemoveVerify($id){
+    public function BookingReject($id){
         
         $booking_id = Booking::where('id',$id)->update(['status'=>'0']); 
 

@@ -176,10 +176,15 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::controller(BookingController::class)->group(function(){
             Route::get('all-bookings','showBookings')->name('showBookings');
             Route::get('/verify/booking/{id}','BookingVerify')->name('booking.verify');
-            Route::get('/remove/verify/booking/{id}','RemoveVerify')->name('remove.verify');
+            Route::get('/remove/verify/booking/{id}','BookingReject')->name('remove.verify');
         });
         
-        Route::get('/all/users',[AdminController::class,'AllUsers'])->name('all.users');
+
+        Route::controller(AdminController::class)->group(function(){
+            Route::get('/all/users',[AdminController::class,'AllUsers'])->name('all.users');
+            Route::get('/delete/users/{id}',[AdminController::class,'DeleteUsers'])->name('delete.user');
+        });
+        
 
         
         Route::controller(PreBookingController::class)->group(function(){
