@@ -69,8 +69,28 @@
                         @auth
 
                         <li>
-                            <a href="#"><img src="{{asset('frontend/assets/images/notification.png')}}"
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true"
+                            aria-expanded="false"><img src="{{asset('frontend/assets/images/notification.png')}}"
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
+                                    <div class="dropdown-menu">
+                                        
+                                        <div class="message media-body m-3">
+                                            
+                                            @php
+                                            $user = Auth::user();
+                                            @endphp
+
+                                            @forelse($user->notifications as $notification)
+                                            <a href="#">{{$notification->data['message']}}</a>
+                                            
+                                            <span class="time float-right ml-3">Just now</span>
+                                            @empty
+
+                                            @endforelse
+                                            
+                                            
+                                           
+                                    </div>             
 
                         <li>
                             @php

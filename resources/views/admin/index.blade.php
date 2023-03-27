@@ -19,7 +19,8 @@
                             <div class="stat-content">
                                 <div class="text-left dib">
                                     <div class="stat-text"><span class="count">{{$totalVehicle}}</span></div>
-                                    <a href="{{route('all.model')}}" class="stat-heading">Total Vehicle</a>
+                                    <a href="{{route('all.model')}}" class="stat-heading">Vehicles</a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -41,7 +42,7 @@
                             <div class="stat-content">
                                 <div class="text-left dib">
                                     <div class="stat-text"><span class="count">{{$totalBooking}}</span></div>
-                                    <div class="stat-heading">Total Booking</div>
+                                    <a href="{{route('showBookings')}}" class="stat-heading">All Bookings</a>
                                 </div>
                             </div>
                         </div>

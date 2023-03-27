@@ -8,6 +8,9 @@ use App\Models\VehicleModel;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Notifications\BookingRequest;
+use App\Notifications\BookingVerified;
+use Illuminate\Support\Facades\Notification;
 
 class BookingController extends Controller
 {
@@ -19,6 +22,9 @@ class BookingController extends Controller
         return view('booking',compact('bike'));
     }
     public function bookingSubmit(Request $request){
+
+        $user = User::where('role','admin')->get();
+        
         Booking::insert([
             'user_id'=>auth()->user()->id,
             'bike_id'=>$request->bike_id,
@@ -37,6 +43,8 @@ class BookingController extends Controller
             'message' => 'Booking Success',
             'alert-type' => 'success'
         );
+
+        Notification::send($user, new BookingRequest($request->first_name));
 
         return redirect()->route('dashboard')->with($notification);
     }
@@ -61,6 +69,10 @@ class BookingController extends Controller
     
 
     public function BookingVerify($id){
+
+        
+
+        $user = User::where('role','user')->get();
       
 
         Booking::where('id',$id)->update(['status'=>'1']);
@@ -69,6 +81,9 @@ class BookingController extends Controller
             'message' => 'Booking Verify Successfully',
             'alert-type' => 'success'
         );
+
+        Notification::send($user, new BookingVerified());
+
         return redirect()->back()->with($notification);
     }
     public function BookingReject($id){

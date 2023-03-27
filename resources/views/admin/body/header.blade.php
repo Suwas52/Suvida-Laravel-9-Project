@@ -28,22 +28,39 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-bell"></i>
-                        <span class="count bg-danger">3</span>
+                        
+                        <!-- Total unread notification -->
+                        @php
+                        $NotCount = Auth::user()->unreadNotifications()->count();
+                        @endphp
+                        <span class="count bg-danger">{{$NotCount}}</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="notification">
-                        <p class="red">You have 3 Notification</p>
+
+                        <p class="red">You have {{$NotCount}} Notification</p>
+                       
+
+                        @php
+                        $user = Auth::user(); 
+                        @endphp 
+
+                        @forelse($user->notifications as $notification)
                         <a class="dropdown-item media" href="#">
+                            
                             <i class="fa fa-check"></i>
-                            <p>Server #1 overloaded.</p>
+                            <p>{{$notification->data['message']}}</p>
+                            <div class="msg-time ml-4" >
+                                <span class="time float-right ">{{Carbon\Carbon::parse($notification->created_at)->diffForHumans()}}</span>
+                            </div>
+                            
+                            
+                            
                         </a>
-                        <a class="dropdown-item media" href="#">
-                            <i class="fa fa-info"></i>
-                            <p>Server #2 overloaded.</p>
-                        </a>
-                        <a class="dropdown-item media" href="#">
-                            <i class="fa fa-warning"></i>
-                            <p>Server #3 overloaded.</p>
-                        </a>
+
+                        @empty
+
+                        @endforelse
+
                     </div>
                 </div>
 
