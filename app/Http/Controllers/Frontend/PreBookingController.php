@@ -10,6 +10,9 @@ use App\Models\PrebookSetup;
 use App\Models\VehicleModel;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\PrebookRequest;
+use App\Notifications\PrebookAccept;
 use Carbon\Carbon;
 
 class PreBookingController extends Controller
@@ -20,6 +23,7 @@ class PreBookingController extends Controller
     }
 
     public function AddPrebook(Request $request){
+        $user = User::where('role','admin')->get();
 
         $prebook_model = $request->model_id;
         $count_model = PreBooking::where('model_id',$prebook_model)->count();
@@ -67,6 +71,7 @@ class PreBookingController extends Controller
                     'alert-type' => 'success'
                 );
         
+                Notification::send($user, new PrebookRequest($request));
                 return redirect()->route('dashboard')->with($notification);
         }
     }
@@ -83,13 +88,16 @@ class PreBookingController extends Controller
     }
 
     public function PrebookVerify($id){
+        $prebook = PreBooking::where('id', $id)->first();
+        $user = User::where('id',$prebook->user_id)->first();
        
         PreBooking::where('id',$id)->update(['status'=>'Verified']);
         $notification = array(
             'message' => 'PreBooking Verified Successful',
             'alert-type' => 'success'
         );
-
+        
+        Notification::send($user, new PrebookAccept($prebook));
         return redirect()->back()->with($notification);
     }
 

@@ -55,25 +55,27 @@
                     <form method="POST" id="myForm" action="{{ route('login') }}">
                         @csrf
                         <div class="inputBox form-group">
-                            <input type="text" id="email" name="email" placeholder="Email" required />
-                            <span><i class="fa fa-user"></i></span>
+                            <input type="text" id="email" name="email" placeholder="Email"  />
+                            <span><i class="fa fa-envelope"></i></span>
+                            <x-input-error :messages="$errors->get('email')" class="mt-2 " />
                         </div>
                         <div class="inputBox form-group">
-                            <input type="password" id="password" name="password" placeholder="Password" required />
+                            <input type="password" id="password" name="password" placeholder="Password"  />
                             <span><i class="fa fa-lock"></i></span>
+                            <x-input-error :messages="$errors->get('password')" class="mt-2 " />
                         </div>
 
                         <input type="submit" name="login" value="Login" />
                     </form>
                     <a href="{{route('password.request')}}" class="a">Forget Password</a>
-                    <h5 class="l5">Sign Up Using</h5>
+                    {{-- <h5 class="l5">Sign Up Using</h5> --}}
                     <ul class="lul">
-                        <!-- <li>
+                        <li>
                             <a href="#"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-google"></i></a>
-                        </li> -->
+                        </li> 
                     </ul>
                     <h4>Create account? <a href="{{route('register')}}">Sign Up</a></h4>
                 </div>
@@ -136,6 +138,7 @@
     }
     @endif
     </script>
+
     <script type="text/javascript">
     $(document).ready(function() {
         $('#myForm').validate({

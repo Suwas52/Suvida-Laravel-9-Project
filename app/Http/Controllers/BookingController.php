@@ -70,9 +70,9 @@ class BookingController extends Controller
 
     public function BookingVerify($id){
 
-        
-
-        $user = User::where('role','user')->get();
+        $book_id = Booking::where('id',$id)->first();
+    
+        $user = User::where('role','user')->where('id',$book_id->user_id)->first();
       
 
         Booking::where('id',$id)->update(['status'=>'1']);

@@ -69,11 +69,18 @@
                         @auth
 
                         <li>
+
+                            @php 
+                            $NotCount = Auth::user()->unreadNotifications()->count();
+                            @endphp 
+
                             <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true"
                             aria-expanded="false"><img src="{{asset('frontend/assets/images/notification.png')}}"
-                                    style="height: 30px; width: 30px; margin-bottom: 5px" alt="" /></a>
+                                    style="height: 30px; width: 30px; margin-bottom: 5px" alt="" />{{$NotCount}}</a>
                                     <div class="dropdown-menu">
                                         
+                                
+
                                         <div class="message media-body m-3">
                                             
                                             @php
@@ -81,9 +88,10 @@
                                             @endphp
 
                                             @forelse($user->notifications as $notification)
-                                            <a href="#">{{$notification->data['message']}}</a>
+                                            <a class="text-left" href="#">{{$notification->data['message']}}</a>
                                             
-                                            <span class="time float-right ml-3">Just now</span>
+                                            <p class="time text-right ml-3">{{Carbon\Carbon::parse($notification->created_at)->diffForHumans()}}</p>
+                                           
                                             @empty
 
                                             @endforelse
@@ -100,8 +108,7 @@
                             <a href="{{route('wishlist')}}"><img src="{{asset('frontend/assets/images/wishlist.png')}}"
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" />
                                 @if($totalWishlist >0)
-
-                                <span>({{$totalWishlist}})</span>
+                                <span>{{$totalWishlist}}</span>
 
                                 @else
                                 @endif

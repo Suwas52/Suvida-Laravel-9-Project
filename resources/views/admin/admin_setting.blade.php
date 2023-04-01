@@ -7,7 +7,7 @@
 
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header h2 text-center">Admin Setting</div>
+                <div class="card-header h2 text-center mt-4">Admin Setting</div>
                 <div class="card-body card-block">
                     <a href="{{route('become.admin')}}">
                         <div class="form-group my-4">

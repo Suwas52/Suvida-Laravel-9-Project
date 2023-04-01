@@ -93,7 +93,7 @@ class AdminController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->back();
+        return redirect()->back()->with($notification);
         
     }
 

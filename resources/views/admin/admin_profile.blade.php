@@ -2,8 +2,8 @@
 @section('content')
 <div class="page-content">
     <!--breadcrumb-->
-    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3 px-4">
-        <div class="breadcrumb-title  h3 ">Admin Profile</div>
+    <div class="page-breadcrumb d-none d-sm-flex align-items-center  mb-1 px-4">
+        <div class="breadcrumb-title  h3 mt-4">Admin Profile</div>
 
 
     </div>

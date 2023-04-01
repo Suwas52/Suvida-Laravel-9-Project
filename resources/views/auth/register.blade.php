@@ -53,21 +53,25 @@
                     <form method="POST" id="myForm" action="{{ route('register') }}">
                         @csrf
                         <div class="inputBox form-group">
-                            <input type="text" id="name" name="name" placeholder="Username" />
+                            <input type="text" id="name" name="name" placeholder="Name" />
                             <span><i class="fa fa-user"></i></span>
+                            <x-input-error :messages="$errors->get('name')" class="mt-1 " />
                         </div>
                         <div class="inputBox form-group">
                             <input type="text" id="email" name="email" placeholder="Email" />
                             <span><i class="fa fa-mail-bulk"></i></span>
+                            <x-input-error :messages="$errors->get('email')" class="mt-1" />
                         </div>
                         <div class="inputBox form-group">
                             <input type="password" id="password" name="password" placeholder="Password" />
                             <span><i class="fa fa-lock"></i></span>
+                            <x-input-error :messages="$errors->get('password')" class="mt-1" />
                         </div>
                         <div class="inputBox form-group">
                             <input type="password" id="password_confirmation" name="password_confirmation"
                                 placeholder="Confirm password" />
                             <span><i class="fa fa-lock"></i></span>
+                            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-1" />
                         </div>
                         <input type="submit" name="login" value="Register" />
                     </form>

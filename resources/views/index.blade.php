@@ -129,14 +129,15 @@
                                 <h5 class="text-center">Account Details</h5>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="{{route('user.profile.store')}}"
+                                <form method="post" id="myForm" action="{{route('user.profile.store')}}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="form-group col-md-12">
                                             <label>User Name <span class="required">*</span></label>
-                                            <input required="" class="form-control" name="username" type="text"
+                                            <input class="form-control" id="username" name="username" type="text"
                                                 value="{{$userData->username}}" />
+                                                
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Full Name <span class="required">*</span></label>
@@ -150,12 +151,12 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Phone <span class="required">*</span></label>
-                                            <input required="" class="form-control" name="phone" type="text"
+                                            <input id="phone" class="form-control" name="phone" type="text"
                                                 value="{{$userData->phone}}" />
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>Address <span class="required">*</span></label>
-                                            <input required="" class="form-control" name="address" type="text"
+                                            <input id="address" class="form-control" name="address" type="text"
                                                 value="{{$userData->address}}" />
                                         </div>
                                         <div class="form-group col-md-12">
@@ -238,5 +239,55 @@
     </div>
 </section>
 <!-- ***** Our Classes End ***** -->
+<!-- Validation -->
+<script src="{{asset('backend/assets/js/validate.min.js')}}"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#myForm').validate({
+            rules: {
+                username: {
+                    required: true,
+                },
+                phone: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                },
+                password_confirmation: {
+                    required: true,
+                },
+
+            },
+            messages: {
+                username: {
+                    required: 'Please Enter User Name ',
+                },
+                phone: {
+                    required: 'Please Enter Email ',
+                },
+                address: {
+                    required: 'Please Enter Password ',
+                },
+                password_confirmation: {
+                    required: 'Please Enter Confirm Password ',
+                },
+
+            },
+            errorElement: 'danger',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+    </script>
 
 @endsection
