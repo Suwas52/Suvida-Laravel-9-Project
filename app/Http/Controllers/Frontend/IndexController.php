@@ -13,6 +13,7 @@ use App\Models\Rating;
 use App\Models\Review;
 use App\Models\User;
 use App\Models\PrebookSetup;
+use App\Models\Booking;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -21,7 +22,7 @@ class IndexController extends Controller
 {
 
     public function Master(){
-        $bike = Vehicle::where('vehicle_name','Bike')->first();
+        $bike = Vehicle::where('vehicle_name','Bike')->first();                                
         
         $category_upcoming = Category::where('category_name','Upcoming')->where('vehicle_id',$bike->id)->first();
         

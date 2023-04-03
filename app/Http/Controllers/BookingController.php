@@ -75,7 +75,7 @@ class BookingController extends Controller
         $user = User::where('role','user')->where('id',$book_id->user_id)->first();
       
 
-        Booking::where('id',$id)->update(['status'=>'1']);
+        Booking::where('id',$id)->update(['status'=>'Confirmed']);
 
         $notification = array(
             'message' => 'Booking Verify Successfully',
@@ -88,10 +88,10 @@ class BookingController extends Controller
     }
     public function BookingReject($id){
         
-        $booking_id = Booking::where('id',$id)->update(['status'=>'0']); 
+        $booking_id = Booking::where('id',$id)->update(['status'=>'Rejected']); 
 
         $notification = array(
-            'message' => 'Remove Verify Booking Successfully',
+            'message' => ' Booking Reject Successfully',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

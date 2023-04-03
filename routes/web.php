@@ -104,7 +104,7 @@ Route::middleware('auth','role:admin')->group(function() {
     Route::post('/admin/password/update',[AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
    
 });
-// Route::post('/admin/login/store',[AdminController::class, 'AdminLoginStore'])->name('admin.login.store')->middleware(RedirectIfAuthenticated::class);
+
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class);
 Route::get('/become/admin',[AdminController::class, 'BecomeAdmin'])->name('become.admin');
 Route::post('/admin/register',[AdminController::class, 'AdminRegister'])->name('admin.register');
@@ -176,7 +176,7 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::controller(BookingController::class)->group(function(){
             Route::get('all-bookings','showBookings')->name('showBookings');
             Route::get('/verify/booking/{id}','BookingVerify')->name('booking.verify');
-            Route::get('/remove/verify/booking/{id}','BookingReject')->name('remove.verify');
+            Route::get('/remove/verify/booking/{id}','BookingReject')->name('booking.reject');
         });
         
 

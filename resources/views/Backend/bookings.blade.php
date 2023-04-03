@@ -60,15 +60,21 @@
                                     </td>
 
                                     <td>
-                                        @if($book->status == '1')
-
-                                        <a href="{{route('remove.verify',$book->id)}}"><span
-                                                class="badge badge-success">Complete</span></a>
-                                        @else
-
+                                        @if($book->status == 'Pending')
                                         <a href="{{route('booking.verify',$book->id)}}"><span
-                                                class="badge badge-danger">Verify</span></a>
+                                            class="badge badge-primary">Verify</span></a>
+                                        <a href="{{route('booking.reject',$book->id)}}"><span
+                                                class="badge badge-danger">Reject</span></a>
 
+                                        
+                                        @elseif($book->status == 'Confirmed')
+
+                                        <a @disabled(true)><span
+                                            class="badge badge-success">Complete</span></a>
+
+                                        @else
+                                        <a @disabled(true)><span
+                                            class="badge badge-danger">Rejected</span></a>
                                         @endif
 
                                     </td>
