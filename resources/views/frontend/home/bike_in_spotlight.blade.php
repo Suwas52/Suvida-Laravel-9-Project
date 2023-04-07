@@ -99,8 +99,8 @@
                                                              @endphp
                                                             @if($user_booking)
                                                             <a @disabled(true)
-                                                                        class="btn-success  btn-dcb p-2"
-                                                                        ><span><i class="fa fa-cart-circle-check"></i></span>
+                                                                        class="primaryButton   btn-dcb p-2 text-success" style="border:1px solid green">
+                                                                        <span class=""><i class="fa fa-cart-circle-check "></i></span>
                                                                                 Already Booked</a>
                                                             
                                                                     
@@ -114,8 +114,8 @@
                                                                             Book
                                                                             Now</a>
                                                                     @endif         
-
-
+                    
+                    
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -123,6 +123,8 @@
                                             @endforeach
 
                                         </div>
+                                        <div id="sp" class=" swiper-button-next"></div> 
+                                        <div id="sp" class=" swiper-button-prev"></div> 
                                     </div>
                                 </div>
 
@@ -165,13 +167,29 @@
                                                         </p>
 
                                                         <ul class="social-icons text-center">
-                                                            <a href="{{ route('booking',$bike->id) }}"
-                                                                class="primaryButton  btn-dcb p-2"
-                                                                style="border:1px solid red"><span><i
-                                                                        class="fa fa-cart-plus">
-                                                                    </i>
-                                                                    Book
-                                                                    Now</a>
+
+                                                            @php 
+                                                            $user_booking = App\Models\Booking::where('bike_id',$bike->id)->where('user_id',Auth::id())->where('status', 'Pending' )->first();
+                                                             @endphp
+                                                            @if($user_booking)
+                                                            <a @disabled(true)
+                                                                        class="primaryButton   btn-dcb p-2 text-success" style="border:1px solid green">
+                                                                        <span class=""><i class="fa fa-cart-circle-check "></i></span>
+                                                                                Already Booked</a>
+                                                            
+                                                                    
+                                                                   
+                                                                    @else
+                                                                    <a href="{{ route('booking',$bike->id) }}"
+                                                                        class="primaryButton  btn-dcb p-2"
+                                                                        style="border:1px solid red"><span><i
+                                                                                class="fa fa-cart-plus">
+                                                                            </i></span> 
+                                                                            Book
+                                                                            Now</a>
+                                                                    @endif         
+                    
+                    
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -179,6 +197,8 @@
                                             @endforeach
 
                                         </div>
+                                        <div id="sp" class=" swiper-button-next"></div> 
+                                        <div id="sp" class=" swiper-button-prev"></div> 
                                     </div>
                                 </div>
                                 
@@ -187,8 +207,7 @@
 
                         <div class="tab-pane fade show " role="tab-pane" id="mileage" aria-labelledby="mileage-tab">
                             <div class="col-12 card">
-                                
-                                
+                             
                                 <div class="row">
 
                                     <div class=" swiper card_slider">
@@ -222,13 +241,29 @@
                                                         </p>
 
                                                         <ul class="social-icons text-center">
-                                                            <a href="{{ route('booking',$bike->id) }}"
-                                                                class="primaryButton  btn-dcb p-2"
-                                                                style="border:1px solid red"><span><i
-                                                                        class="fa fa-cart-plus">
-                                                                    </i>
-                                                                    Book
-                                                                    Now</a>
+
+                                                            @php 
+                                                            $user_booking = App\Models\Booking::where('bike_id',$bike->id)->where('user_id',Auth::id())->where('status', 'Pending' )->first();
+                                                             @endphp
+                                                            @if($user_booking)
+                                                            <a @disabled(true)
+                                                                        class="primaryButton   btn-dcb p-2 text-success" style="border:1px solid green">
+                                                                        <span class=""><i class="fa fa-cart-circle-check "></i></span>
+                                                                                Already Booked</a>
+                                                            
+                                                                    
+                                                                   
+                                                                    @else
+                                                                    <a href="{{ route('booking',$bike->id) }}"
+                                                                        class="primaryButton  btn-dcb p-2"
+                                                                        style="border:1px solid red"><span><i
+                                                                                class="fa fa-cart-plus">
+                                                                            </i></span> 
+                                                                            Book
+                                                                            Now</a>
+                                                                    @endif         
+                    
+                    
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -236,6 +271,8 @@
                                             @endforeach
 
                                         </div>
+                                        <div id="sp" class=" swiper-button-next"></div> 
+                                        <div id="sp" class=" swiper-button-prev"></div> 
                                     </div>
                                 </div>
                             </div>
@@ -278,13 +315,29 @@
                                                         </p>
 
                                                         <ul class="social-icons text-center">
-                                                            <a href="{{ route('booking',$bike->id) }}"
-                                                                class="primaryButton  btn-dcb p-2"
-                                                                style="border:1px solid red"><span><i
-                                                                        class="fa fa-cart-plus">
-                                                                    </i>
-                                                                    Book
-                                                                    Now</a>
+
+                                                            @php 
+                                                            $user_booking = App\Models\Booking::where('bike_id',$bike->id)->where('user_id',Auth::id())->where('status', 'Pending' )->first();
+                                                             @endphp
+                                                            @if($user_booking)
+                                                            <a @disabled(true)
+                                                                        class="primaryButton   btn-dcb p-2 text-success" style="border:1px solid green">
+                                                                        <span class=""><i class="fa fa-cart-circle-check "></i></span>
+                                                                                Already Booked</a>
+                                                            
+                                                                    
+                                                                   
+                                                                    @else
+                                                                    <a href="{{ route('booking',$bike->id) }}"
+                                                                        class="primaryButton  btn-dcb p-2"
+                                                                        style="border:1px solid red"><span><i
+                                                                                class="fa fa-cart-plus">
+                                                                            </i></span> 
+                                                                            Book
+                                                                            Now</a>
+                                                                    @endif         
+                    
+                    
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -292,6 +345,8 @@
                                             @endforeach
 
                                         </div>
+                                        <div id="sp" class=" swiper-button-next"></div> 
+                                        <div id="sp" class=" swiper-button-prev"></div> 
                                     </div>
                                 </div>
 
@@ -334,13 +389,29 @@
                                                         </p>
 
                                                         <ul class="social-icons text-center">
-                                                            <a href="{{ route('booking',$bike->id) }}"
-                                                                class="primaryButton  btn-dcb p-2"
-                                                                style="border:1px solid red"><span><i
-                                                                        class="fa fa-cart-plus">
-                                                                    </i>
-                                                                    Book
-                                                                    Now</a>
+
+                                                            @php 
+                                                            $user_booking = App\Models\Booking::where('bike_id',$bike->id)->where('user_id',Auth::id())->where('status', 'Pending' )->first();
+                                                             @endphp
+                                                            @if($user_booking)
+                                                            <a @disabled(true)
+                                                                        class="primaryButton   btn-dcb p-2 text-success" style="border:1px solid green">
+                                                                        <span class=""><i class="fa fa-cart-circle-check "></i></span>
+                                                                                Already Booked</a>
+                                                            
+                                                                    
+                                                                   
+                                                                    @else
+                                                                    <a href="{{ route('booking',$bike->id) }}"
+                                                                        class="primaryButton  btn-dcb p-2"
+                                                                        style="border:1px solid red"><span><i
+                                                                                class="fa fa-cart-plus">
+                                                                            </i></span> 
+                                                                            Book
+                                                                            Now</a>
+                                                                    @endif         
+                    
+                    
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -348,6 +419,8 @@
                                             @endforeach
 
                                         </div>
+                                        <div id="sp" class=" swiper-button-next"></div> 
+                                        <div id="sp" class=" swiper-button-prev"></div> 
                                     </div>
                                 </div>
 
@@ -389,13 +462,29 @@
                                                         </p>
 
                                                         <ul class="social-icons text-center">
-                                                            <a href="{{ route('booking',$bike->id) }}"
-                                                                class="primaryButton  btn-dcb p-2"
-                                                                style="border:1px solid red"><span><i
-                                                                        class="fa fa-cart-plus">
-                                                                    </i>
-                                                                    Book
-                                                                    Now</a>
+
+                                                            @php 
+                                                            $user_booking = App\Models\Booking::where('bike_id',$bike->id)->where('user_id',Auth::id())->where('status', 'Pending' )->first();
+                                                             @endphp
+                                                            @if($user_booking)
+                                                            <a @disabled(true)
+                                                                        class="primaryButton   btn-dcb p-2 text-success" style="border:1px solid green">
+                                                                        <span class=""><i class="fa fa-cart-circle-check "></i></span>
+                                                                                Already Booked</a>
+                                                            
+                                                                    
+                                                                   
+                                                                    @else
+                                                                    <a href="{{ route('booking',$bike->id) }}"
+                                                                        class="primaryButton  btn-dcb p-2"
+                                                                        style="border:1px solid red"><span><i
+                                                                                class="fa fa-cart-plus">
+                                                                            </i></span> 
+                                                                            Book
+                                                                            Now</a>
+                                                                    @endif         
+                    
+                    
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -403,6 +492,8 @@
                                             @endforeach
 
                                         </div>
+                                        <div id="sp" class=" swiper-button-next"></div> 
+                                        <div id="sp" class=" swiper-button-prev"></div> 
                                     </div>
                                 </div>
                               
@@ -443,13 +534,29 @@
                                                         </p>
 
                                                         <ul class="social-icons text-center">
-                                                            <a href="{{ route('booking',$bike->id) }}"
-                                                                class="primaryButton  btn-dcb p-2"
-                                                                style="border:1px solid red"><span><i
-                                                                        class="fa fa-cart-plus">
-                                                                    </i>
-                                                                    Book
-                                                                    Now</a>
+
+                                                            @php 
+                                                            $user_booking = App\Models\Booking::where('bike_id',$bike->id)->where('user_id',Auth::id())->where('status', 'Pending' )->first();
+                                                             @endphp
+                                                            @if($user_booking)
+                                                            <a @disabled(true)
+                                                                        class="primaryButton   btn-dcb p-2 text-success" style="border:1px solid green">
+                                                                        <span class=""><i class="fa fa-cart-circle-check "></i></span>
+                                                                                Already Booked</a>
+                                                            
+                                                                    
+                                                                   
+                                                                    @else
+                                                                    <a href="{{ route('booking',$bike->id) }}"
+                                                                        class="primaryButton  btn-dcb p-2"
+                                                                        style="border:1px solid red"><span><i
+                                                                                class="fa fa-cart-plus">
+                                                                            </i></span> 
+                                                                            Book
+                                                                            Now</a>
+                                                                    @endif         
+                    
+                    
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -457,6 +564,8 @@
                                             @endforeach
 
                                         </div>
+                                        <div id="sp" class=" swiper-button-next"></div> 
+                                        <div id="sp" class=" swiper-button-prev"></div> 
                                     </div>
                                 </div>
                               

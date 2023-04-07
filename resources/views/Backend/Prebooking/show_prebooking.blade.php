@@ -68,11 +68,11 @@
                                             
                                         @elseif($user_prebook->status == "Rejected")
 
-                                        <a ><span
+                                        <a @disabled(true) ><span
                                             class="badge badge-danger">Rejected</span></a>
 
                                             @else
-                                        <a ><span
+                                        <a aria-disabled="true" ><span
                                             class="badge badge-success">Verified</span></a>
 
                                         @endif

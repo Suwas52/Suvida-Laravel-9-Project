@@ -1,3 +1,4 @@
+
 <section class="section" id="trainers">
     <div class="container">
         <div class="row">
@@ -28,8 +29,8 @@
 
                     @endforeach
                 </div>
-                <!-- <div id="sp" class=" swiper-button-next"></div> -->
-                <!-- <div id="sp" class=" swiper-button-prev"></div> -->
+                 <div id="sp" class=" swiper-button-next"></div> 
+                 <div id="sp" class=" swiper-button-prev"></div> 
             </div>
             <div class="swiper-pagination"></div>
         </div>

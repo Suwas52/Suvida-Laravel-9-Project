@@ -148,6 +148,23 @@
     .font {
         /* display: none; */
     }
+
+    .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+    content: 'next';
+    color: #212529;
+    font-size: 20px;
+    margin-left: 30px;
+    }
+
+    .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after{
+    content: 'prev';
+    font-size: 20px;
+    margin-right: 30px;
+    color: #212529;
+    
+    }
+
+
     </style>
 </head>
 

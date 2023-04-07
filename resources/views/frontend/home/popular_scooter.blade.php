@@ -37,16 +37,37 @@
                                     </p>
 
                                     <ul class="social-icons text-center">
-                                        <a href="{{ route('booking',$bike->id) }}" class="primaryButton  btn-dcb p-2"
-                                            style="border:1px solid red"><span><i class="fa fa-cart-plus"> </i> Book Now</a>
+
+                                        @php 
+                                        $user_booking = App\Models\Booking::where('bike_id',$bike->id)->where('user_id',Auth::id())->where('status', 'Pending' )->first();
+                                         @endphp
+                                        @if($user_booking)
+                                        <a @disabled(true)
+                                                    class="primaryButton   btn-dcb p-2 text-success" style="border:1px solid green">
+                                                    <span class=""><i class="fa fa-cart-circle-check "></i></span>
+                                                            Already Booked</a>
+                                        
+                                                
+                                               
+                                                @else
+                                                <a href="{{ route('booking',$bike->id) }}"
+                                                    class="primaryButton  btn-dcb p-2"
+                                                    style="border:1px solid red"><span><i
+                                                            class="fa fa-cart-plus">
+                                                        </i></span> 
+                                                        Book
+                                                        Now</a>
+                                                @endif         
+
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         @endforeach
                 </div>
-                <!-- <div id="sp" class=" swiper-button-next"></div> -->
-                <!-- <div id="sp" class=" swiper-button-prev"></div> -->
+                 <div id="sp" class=" swiper-button-next"></div> 
+                 <div id="sp" class=" swiper-button-prev"></div> 
             </div>
             
         </div>

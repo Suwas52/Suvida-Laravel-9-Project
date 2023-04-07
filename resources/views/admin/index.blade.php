@@ -156,7 +156,7 @@
                                                 @elseif($user_book->status == 'Confirmed')
 
                                                 <a @disabled(true)><span
-                                                    class="badge badge-complete">Complete</span></a>
+                                                    class="badge badge-complete">Verified</span></a>
 
                                                 @else
                                                 <a @disabled(true)><span
