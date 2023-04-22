@@ -109,8 +109,20 @@
                                             <div class="form-group col">
                                                 <label for="color"><span class="text-danger align-middle">*
                                                     </span><strong>Model Color:</strong> </label>
-                                                <input type="text" class="form-control" id="color" name="model_color"
-                                                    placeholder="Location Name">
+                                      
+                                                    <select name="model_color" id="select" class="form-control ">
+                                                        <option disabled="" selected="">Model Color</option>
+                                                        @php
+                                                        $colors= explode("," , $bike->model_color)
+                                                        @endphp
+                                                        
+                                                        @foreach($colors as $color)
+                    
+                                                            <option value="{{$color}}">{{$color}}</option>                   
+                    
+                                                        @endforeach
+                                                        
+                                                    </select>
 
                                             </div>
 

@@ -44,6 +44,7 @@ class TestRideController extends Controller
             'city'=>$request->city,
             'address'=>$request->address,
             'book_time'=>$bookingDateTime,
+            'license_no'=>$request->license_no,
             'created_at' => Carbon::now(),
         ]);
         $notification = array(

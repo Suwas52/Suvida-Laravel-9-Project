@@ -75,7 +75,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="datetime-local" class="col-form-label"><span class="text-danger align-middle">*
-                                </span>Date:</label>
+                                </span>Date and Time :</label>
                             <input class="form-control" name="book_time" type="datetime-local" id="datetime-local"
                                 required>
                         </div>
@@ -105,6 +105,16 @@
                             <label for="location"><span class="text-danger align-middle">* </span>Location:</label>
                             <input type="text" class="form-control" name="address" id="location"
                                 placeholder="Location Name">
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        
+
+                        <div class="form-group col-md-12">
+                            <label for="license_no"><span class="text-danger align-middle">* </span>Driver's License No:</label>
+                            <input type="text" class="form-control" name="license_no" id="license_no"
+                                placeholder="Enter your License Number">
 
                         </div>
                     </div>

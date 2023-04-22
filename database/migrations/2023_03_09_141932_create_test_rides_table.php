@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('address');
             $table->dateTime('book_time');
+            $table->string('license_no');
             $table->string('status')->default('Pending');
             $table->timestamps();
         });
