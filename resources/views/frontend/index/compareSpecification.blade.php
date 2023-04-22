@@ -95,13 +95,28 @@
                     <tr>
                         <th scope="row">Colors</th>
                         <td>
-                            <span style="height:25px; width:25px; background-color:{{$models_1->model_color}};border-radius: 50%;display: inline-block"></span>
+
+                            @php
+                            $model1= explode("," , $models_1->model_color)
+                            @endphp
+
+                            @foreach($model1 as $color_1)
+                                 <span style="height:25px; width:25px; background-color:{{$color_1}};border-radius: 50%;display: inline-block"></span>
+                            @endforeach
+                            
+                            
+                            
+                            
                             
                         </td>
                         <td>
-                            <span class="dot4"></span>
-                            <span class="dot5"></span>
-                            <span class="dot6"></span>
+                            @php
+                            $model2= explode("," , $models_2->model_color)
+                            @endphp
+
+                            @foreach($model2 as $color_2)
+                                 <span style="height:25px; width:25px; background-color:{{$color_2}};border-radius: 50%;display: inline-block"></span>
+                            @endforeach
                         </td>
                     </tr>
                     <tr>
