@@ -211,6 +211,13 @@
 
                                         </div>
 
+                                        <div class="mb-3">
+                                            <label for="riding_mode" class="form-label">Riding Modes</label>
+                                            <input type="text" name="riding_mode" class="form-control visually-hidden mb-3"
+                                            data-role="tagsinput" value="Sport, Rain ">
+                                            
+                                        </div>
+
 
                                     </div>
                                 </div>
@@ -249,15 +256,40 @@
                                                     placeholder="">
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="max_power" class="form-label">Power</label>
+                                                <label for="max_power" class="form-label">Max Power</label>
                                                 <input type="text" name="max_power" class="form-control mb-3"
                                                     id="max_power" placeholder="">
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="max_torque" class="form-label">Torque</label>
+                                                <label for="max_torque" class="form-label">Max Torque</label>
                                                 <input type="text" name="max_torque" class="form-control mb-3"
                                                     id="max_torque" placeholder="">
                                             </div>
+
+                                            <div class="col-md-6">
+                                                <label for="no_of_cylinders" class="form-label">No. of Cylinders</label>
+                                                <input type="text" name="no_of_cylinders" class="form-control mb-3"
+                                                    id="no_of_cylinders" placeholder="No. of Cylinders">
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="valve_per_cylinder" class="form-label">Valve Per Cylinder</label>
+                                                <input type="text" name="valve_per_cylinder" class="form-control mb-3"
+                                                    id="valve_per_cylinder" placeholder="Valve Per Cylinder">
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="bore" class="form-label">Bore</label>
+                                                <input type="text" name="bore" class="form-control mb-3"
+                                                    id="bore" placeholder="Enter Bore">
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="stroke" class="form-label">Stroke</label>
+                                                <input type="text" name="stroke" class="form-control mb-3"
+                                                    id="stroke" placeholder="Enter Stroke">
+                                            </div>
+
                                             <div class="col-md-6">
                                                 <label for="emission_type" class="form-label">Emission Type</label>
                                                 <input type="text" name="emission_type" class="form-control"
@@ -289,6 +321,8 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                        
                                             <div class="col-md-6">
                                                 <label for="braking" class="form-label">Fuel Supply </label>
                                                 <div class="col col-md-9">
@@ -310,21 +344,22 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="col-md-6">
-                                                <label for="braking" class="form-label">Starting </label>
+                                                <label class="form-label">Starting </label>
                                                 <div class="col col-md-9">
                                                     <div class="form-check">
                                                         <div class="radio">
-                                                            <label for="radio1" class="form-check-label ">
-                                                                <input type="radio" id="radio1" name="starting"
-                                                                    value="Self Start" class="form-check-input">Self
-                                                                Start
+                                                            <label for="Self Start Only" class="form-check-label ">
+                                                                <input type="radio" id="Self Start Only" name="starting"
+                                                                    value="Self Start Only" class="form-check-input">Self
+                                                                Start Only
 
                                                             </label>
                                                         </div>
                                                         <div class="radio">
-                                                            <label for="radio2" class="form-check-label mb-3">
-                                                                <input type="radio" id="radio2" name="starting"
+                                                            <label for="Kick and Self Start" class="form-check-label mb-3">
+                                                                <input type="radio" id="Kick and Self Start" name="starting"
                                                                     value="Kick and Self Start"
                                                                     class="form-check-input">Kick and Self Start
                                                             </label>
@@ -354,6 +389,28 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="col-md-6">
+                                                <label for="braking" class="form-label">Clock</label>
+                                                <div class="col col-md-9">
+                                                    <div class="form-check">
+                                                        <div class="radio">
+                                                            <label for="Digital" class="form-check-label ">
+                                                                <input type="radio" id="Digital" name="clock"
+                                                                    value="Digital" class="form-check-input">Digital
+
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio">
+                                                            <label for="Analogue" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analogue" name="clock"
+                                                                    value="Analogue" class="form-check-input">Analogue
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="col-md-6">
                                                 <label for="braking" class="form-label">Speedometer</label>
                                                 <div class="col col-md-9">
@@ -366,9 +423,9 @@
                                                             </label>
                                                         </div>
                                                         <div class="radio">
-                                                            <label for="Analog" class="form-check-label mb-3">
-                                                                <input type="radio" id="Analog" name="speedometer"
-                                                                    value="Analog" class="form-check-input">Analog
+                                                            <label for="Analogue" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analogue" name="speedometer"
+                                                                    value="Analogue" class="form-check-input">Analogue
                                                             </label>
                                                         </div>
                                                     </div>
@@ -386,9 +443,9 @@
                                                             </label>
                                                         </div>
                                                         <div class="radio">
-                                                            <label for="Analog" class="form-check-label mb-3">
-                                                                <input type="radio" id="Analog" name="techometer"
-                                                                    value="Analog" class="form-check-input">Analog
+                                                            <label for="Analogue" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analogue" name="techometer"
+                                                                    value="Analogue" class="form-check-input">Analogue
                                                             </label>
                                                         </div>
                                                     </div>
@@ -406,9 +463,9 @@
                                                             </label>
                                                         </div>
                                                         <div class="radio">
-                                                            <label for="Analog" class="form-check-label mb-3">
-                                                                <input type="radio" id="Analog" name="odometer"
-                                                                    value="Analog" class="form-check-input">Analog
+                                                            <label for="Analogue" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analogue" name="odometer"
+                                                                    value="Analogue" class="form-check-input">Analogue
                                                             </label>
                                                         </div>
                                                     </div>
@@ -426,9 +483,9 @@
                                                             </label>
                                                         </div>
                                                         <div class="radio">
-                                                            <label for="Analog" class="form-check-label mb-3">
-                                                                <input type="radio" id="Analog" name="tripmeter"
-                                                                    value="Analog" class="form-check-input">Analog
+                                                            <label for="Analogue" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analogue" name="tripmeter"
+                                                                    value="Analogue" class="form-check-input">Analogue
                                                             </label>
                                                         </div>
                                                     </div>
@@ -446,9 +503,9 @@
                                                             </label>
                                                         </div>
                                                         <div class="radio">
-                                                            <label for="Analog" class="form-check-label mb-3">
-                                                                <input type="radio" id="Analog" name="fuel_gauge"
-                                                                    value="Analog" class="form-check-input">Analog
+                                                            <label for="Analogue" class="form-check-label mb-3">
+                                                                <input type="radio" id="Analogue" name="fuel_gauge"
+                                                                    value="Analogue" class="form-check-input">Analogue
                                                             </label>
                                                         </div>
                                                     </div>
@@ -527,7 +584,7 @@
                                                         <div class="radio">
                                                             <label for="Drum" class="form-check-label mb-3">
                                                                 <input type="radio" id="Drum" name="brake_front"
-                                                                    value="Drum" class="form-check-input">Drum
+                                                                    value="Drum" class="form-check-input mb-3">Drum
                                                             </label>
                                                         </div>
                                                     </div>
@@ -548,55 +605,14 @@
                                                         <div class="radio">
                                                             <label for="Drum" class="form-check-label mb-3">
                                                                 <input type="radio" id="Drum" name="brake_rear"
-                                                                    value="Drum" class="form-check-input">Drum
+                                                                    value="Drum" class="form-check-input mb-3">Drum
                                                             </label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
-                                                <label for="braking" class="form-label">Riding Mode</label>
-                                                <div class="col col-md-9">
-                                                    <div class="form-check">
-                                                        <div class="radio">
-                                                            <label for="Yes" class="form-check-label ">
-                                                                <input type="radio" id="Yes" name="riding_mode"
-                                                                    value="Yes" class="form-check-input">Yes
-
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label for="No" class="form-check-label mb-3">
-                                                                <input type="radio" id="No" name="riding_mode"
-                                                                    value="No" class="form-check-input">No
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-md-6">
-                                                <label for="braking" class="form-label">Rain Mode</label>
-                                                <div class="col col-md-9">
-                                                    <div class="form-check">
-                                                        <div class="radio">
-                                                            <label for="Yes" class="form-check-label ">
-                                                                <input type="radio" id="Yes" name="rain_mode"
-                                                                    value="Yes" class="form-check-input">Yes
-
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio">
-                                                            <label for="No" class="form-check-label mb-3">
-                                                                <input type="radio" id="No" name="rain_mode" value="No"
-                                                                    class="form-check-input">No
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                  
 
                                             <div class="col-md-6">
                                                 <label for="braking" class="form-label">ABS</label>
@@ -606,14 +622,14 @@
                                                             <label for="Single Channel" class="form-check-label ">
                                                                 <input type="radio" id="Single Channel" name="abs"
                                                                     value="Single Channel"
-                                                                    class="form-check-input">Single Channel
+                                                                    class="form-check-input ">Single Channel
 
                                                             </label>
                                                         </div>
                                                         <div class="radio">
                                                             <label for="Dual Channel" class="form-check-label mb-3">
                                                                 <input type="radio" id="Dual Channel" name="abs"
-                                                                    value="Dual Channel" class="form-check-input">Dual
+                                                                    value="Dual Channel" class="form-check-input mb-3">Dual
                                                                 Channel
                                                             </label>
                                                         </div>
@@ -623,28 +639,26 @@
 
 
                                             <div class="col-md-6">
-                                                <label for="gear_box" class="form-label">Gear Box</label>
-                                                <input type="text" name="gear_box" class="form-control" id="gear_box"
+                                                <label for="gear_box" class="form-label mb-3">Gear Box</label>
+                                                <input type="text" name="gear_box" class="form-control mb-3" id="gear_box"
                                                     placeholder="Enter No of Gear Box">
                                             </div>
 
                                             <div class="col-md-6">
-                                                <label for="fuel_capacity" class="form-label">Fuel Capacity</label>
-                                                <input type="text" name="fuel_capacity" class="form-control"
+                                                <label for="fuel_capacity" class="form-label ">Fuel Capacity</label>
+                                                <input type="text" name="fuel_capacity" class="form-control mb-3"
                                                     id="fuel_capacity" placeholder="Enter Fuel Capacity">
                                             </div>
 
-                                            <div class="col-md-6">
-                                                <label for="top_speed" class="form-label">Top Speed</label>
-                                                <input type="text" name="top_speed" class="form-control" id="top_speed"
+                                            <div class="col-md-6 ">
+                                                <label for="top_speed" class="form-label mb-3">Top Speed</label>
+                                                <input type="text" name="top_speed" class="form-control mb-3" id="top_speed"
                                                     placeholder="Enter Top Speed">
                                             </div>
 
 
-
-
                                             <div class="col-12">
-                                                <label for="description" class="form-label">Description</label>
+                                                <label for="description" class="form-label ">Description</label>
                                                 <textarea name="description" class="form-control mb-3" id="description"
                                                     rows="3"></textarea>
                                             </div>

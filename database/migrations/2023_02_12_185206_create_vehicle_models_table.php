@@ -28,12 +28,17 @@ return new class extends Migration
             $table->string('fuel_supply')->nullable();
             $table->string('max_power');
             $table->string('max_torque');
+            $table->string('no_of_cylinders')->nullable();
+            $table->string('valve_per_cylinder')->nullable();
+            $table->string('bore')->nullable();
+            $table->string('stroke')->nullable();
             $table->string('mileage');
             $table->string('starting')->nullable();
             $table->string('body_type')->nullable();
             $table->string('cooling_system')->nullable();
             $table->string('fuel_capacity')->nullable();
             $table->string('braking_type')->nullable();
+            $table->string('clock')->nullable();
             $table->string('speedometer')->nullable();
             $table->string('techometer')->nullable();
             $table->string('odometer')->nullable();
@@ -56,8 +61,7 @@ return new class extends Migration
             $table->string('suspension_rear')->nullable();
             $table->string('tyre_front')->nullable();
             $table->string('tyre_rear')->nullable();
-            $table->string('riding_mode')->nullable();
-            $table->string('rain_mode')->nullable();
+            $table->string('riding_mode')->nullable(); 
             $table->string('abs')->nullable();
             $table->string('top_speed')->nullable();
             $table->text('description')->nullable();

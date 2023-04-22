@@ -418,9 +418,27 @@
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <label>Mileage</label>
+                                            <label>No. of Cylinders</label>
 
-                                            <p>{{$models->mileage}} <span> KMpl</span></p>
+                                            <p>{{$models->no_of_cylinders}} </p>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label>Valve Per Cylinder</label>
+
+                                            <p>{{$models->valve_per_cylinder}} </p>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label>Starting</label>
+
+                                            <p>{{$models->starting}} </p>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label>Gear Box</label>
+
+                                            <p>{{$models->gear_box}} </p>
                                         </div>
 
                                         <div class="col-sm-6">
@@ -431,17 +449,13 @@
                                         </div>
 
                                         <div class="col-sm-6">
-                                            <label>Braking Type</label>
+                                            <label>Fuel Supply </label>
 
-                                            <p>{{$models->braking_type}} </p>
+                                            <p>{{$models->fuel_supply}} </p>
+
                                         </div>
 
-
-                                        <div class="col-sm-6">
-                                            <label>ABS</label>
-
-                                            <p>{{$models->abs}}</p>
-                                        </div>
+                                        
 
 
                                     </div>
@@ -476,6 +490,12 @@
                                         </div>
 
                                         <div class="col-sm-6">
+                                            <label>Clock </label>
+
+                                            <p>{{$models->clock }}</p>
+                                        </div>
+
+                                        <div class="col-sm-6">
                                             <label>Seat Type</label>
 
                                             <p>{{$models->seat_type}} </p>
@@ -486,12 +506,6 @@
 
                                             <p>{{$models->riding_mode}} </p>
 
-                                        </div>
-
-                                        <div class="col-sm-6">
-                                            <label> Rain Mode</label>
-
-                                            <p>{{$models->rain_mode}} </p>
                                         </div>
 
                                         <div class="col-sm-6">
@@ -518,6 +532,19 @@
                                             <p>{{$models->top_speed}} <span> KM/H</span></p>
                                         </div>
 
+                                        <div class="col-sm-6">
+                                            <label>Braking Type</label>
+
+                                            <p>{{$models->braking_type}} </p>
+                                        </div>
+
+
+                                        <div class="col-sm-6">
+                                            <label>ABS</label>
+
+                                            <p>{{$models->abs}}</p>
+                                        </div>
+
 
                                     </div>
                                 </article>
@@ -528,40 +555,40 @@
                                         <div class="col-sm-6">
                                             <label>Fuel Capacity</label>
 
-                                            <p>{{$models->fuel_capacity}}</p>
+                                            <p>{{$models->fuel_capacity}} <span> L</span></p>
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Width</label>
 
-                                            <p>{{$models->width}}</p>
+                                            <p>{{$models->width}} <span> mm</span></p>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <label>Weight </label>
 
-                                            <p>{{$models->weight}}</p>
+                                            <p>{{$models->weight}} <span> KG</span></p>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <label>Length</label>
 
-                                            <p>{{$models->length}}</p>
+                                            <p>{{$models->length}} <span> mm</span></p>
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Height</label>
 
-                                            <p>{{$models->height}}</p>
+                                            <p>{{$models->height}} <span> mm</span></p>
                                         </div>
 
                                         <div class="col-sm-6">
                                             <label>Saddle Height</label>
 
-                                            <p>{{$models->saddle_height}}</p>
+                                            <p>{{$models->saddle_height}} <span> mm</span></p>
                                         </div>
                                         <div class="col-sm-6">
                                             <label>Ground Clearance </label>
 
-                                            <p>{{$models->ground_clearance}}</p>
+                                            <p>{{$models->ground_clearance}} <span> mm</span></p>
                                         </div>
                                     </div>
                                 </article>

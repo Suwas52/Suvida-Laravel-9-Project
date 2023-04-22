@@ -183,3 +183,7 @@
   font-weight: 800;
   color: #ed563b;
 }
+
+.compare-table thead th{
+  font-size: 20px;
+}
