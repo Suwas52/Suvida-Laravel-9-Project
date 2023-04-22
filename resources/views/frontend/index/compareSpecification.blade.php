@@ -93,11 +93,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">Colours</th>
+                        <th scope="row">Colors</th>
                         <td>
-                            <span class="dot1"></span>
-                            <span class="dot2"></span>
-                            <span class="dot3"></span>
+                            <span style="height:25px; width:25px; background-color:{{$models_1->model_color}};border-radius: 50%;display: inline-block"></span>
+                            
                         </td>
                         <td>
                             <span class="dot4"></span>

@@ -33,13 +33,14 @@
                                 <!-- First card content goes here -->
                                 <div class="circle" style="margin-left:90px">
                                     <div class="plus">
-                                        <button id="search-btn" style="border: none; background-color: transparent;"><i
+                                        <div id="compare-1"  style="border: none; background-color: transparent;cursor: pointer;"><i
                                                 class="fa-solid fa-plus " style="font-size:50px;margin:35px auto;"></i>
-                                        </button>
+                                        </div>
 
-                                        <div class="search-form">
-                                            <input class="form-group" type="search" name="model_1" id="search-compare_1"
-                                                placeholder="Search" />
+                                        <div class="row search-form">
+                                            
+                                            
+                                            
                                         </div>
                                     </div>
 
@@ -49,19 +50,26 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card search-form-1 " >
+                            <div class="card-header title">
+                                <button id="close-1" type="button" style="outline: none" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                <h2 class="text-center " >Model Name</h2>
+                            </div>
+                                <input class="form-group" style="border:1px solid gray;border-radius:5px;margin:5px;padding:10px;outline:none" type="search" name="model_1" id="search-compare_1"
+                                placeholder="Search Model Name" />
+                                                
+                            </div>
                     </div>
                     <div class="form-group col-md-6" style="padding:60px">
                         <div class="card">
                             <div class="card-body">
                                 <div class="circle" style="margin-left:90px">
                                     <div class="plus">
-                                        <button class="faq-toggle"
-                                            style="border: none; background-color: transparent;"><i
+                                        <div class="faq-toggle" id="compare-2"
+                                            style="border: none; background-color: transparent;cursor: pointer;"><i
                                                 class="fa-solid fa-plus " style="font-size:50px;margin:35px auto;"></i>
-                                        </button>
-                                        <div class="card-shadow">
-                                            <input type="search" name="model_2" id="search-compare_2"
-                                                placeholder="Search" />
                                         </div>
 
                                     </div>
@@ -72,11 +80,24 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card search-form-2" >
+                            <div class="card-header title">
+                                <button id="close-2" type="button" style="outline: none" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                <h2 class="text-center " >Model Name</h2>
+                                
+                            </div>
+                                                
+                                <input class="form-group" style="border:1px solid gray;border-radius:5px;margin:5px;padding:10px;outline:none" type="search" name="model_2" id="search-compare_2"
+                                placeholder="Search Model Name" />
+                                                
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <button type="submit" class="btn btn-primary p-3" style="margin-left:480px; margin-bottom:20px;">Compare
-                    Model</button>
+                    <button type="submit" class="btn btn-primary p-3" style="margin-left:480px; margin-bottom:20px;">Compare
+                        Model</button>
             </form>
 
         </div>

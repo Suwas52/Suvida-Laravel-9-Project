@@ -300,9 +300,18 @@
     </script>
 
     <script>
-    const addBtn = document.querySelector('.search-form');
+    // const addBtn = document.querySelector('.search-form');
 
-    const box = document.querySelector('#search-btn');
+    let searchForm = document.querySelector(".search-compare_1");
+
+document.querySelector("#search-bn").onclick = () => {
+  searchForm.classList.toggle("active");
+};
+window.onscroll = () => {
+  searchForm.classList.remove("active");
+};
+
+    // const box = document.querySelector('#search-btn');
     </script>
 
 
