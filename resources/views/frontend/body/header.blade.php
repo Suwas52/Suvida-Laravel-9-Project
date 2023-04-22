@@ -160,10 +160,9 @@
     <form action="{{route('model.search')}}" method="post">
         @csrf
         <div class="search-form">
-            <input type="search" name="search" id="search-box" placeholder="Search" />
-            <span for="search-box" id="search-btn" class=" fas fa-search"></span>
+            <input type="search text-light"  name="search" id="search-box" placeholder="Search Bikes or Scooters" />
+            <button style="background: none;border:none;outline:none;" for="search-box" id="search-btn" class="submit-span  fas fa-search"></button>
 
-            <!-- <button type="submit"><i class="fas fa-search"></i></button> -->
         </div>
     </form>
 </header>
