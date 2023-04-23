@@ -32,8 +32,8 @@
                             <div class="card-body">
                                 <!-- First card content goes here -->
                                 <div class="circle" style="margin-left:90px">
-                                    <div class="plus">
-                                        <div id="compare-1"  style="border: none; background-color: transparent;cursor: pointer;"><i
+                                    <div class="plus" id="compare-1">
+                                        <div  style="border: none; background-color: transparent;cursor: pointer;"><i
                                                 class="fa-solid fa-plus " style="font-size:50px;margin:35px auto;"></i>
                                         </div>
 
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card search-form-1 " >
+                        <div class="card search-form-1">
                             <div class="card-header title">
                                 <button id="close-1" type="button" style="outline: none" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -66,9 +66,8 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="circle" style="margin-left:90px">
-                                    <div class="plus">
-                                        <div class="faq-toggle" id="compare-2"
-                                            style="border: none; background-color: transparent;cursor: pointer;"><i
+                                    <div class="plus" id="compare-2">
+                                        <div  style="border: none; background-color: transparent;cursor: pointer;"><i
                                                 class="fa-solid fa-plus " style="font-size:50px;margin:35px auto;"></i>
                                         </div>
 

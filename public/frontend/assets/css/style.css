@@ -511,7 +511,7 @@ header
     position: absolute;
     top: 105%;
     right: 20%;
-    background: rgba(0, 0, 0, 0.2); 
+    background: rgba(0, 0, 0, 0.2);
     width: 35rem;
     height: 3.5rem;
     display: flex;
@@ -523,7 +523,7 @@ header
     transform: scaleY(1);
 }
 
-.header-area .search-form input{
+.header-area .search-form input {
     height: 100%;
     width: 100%;
     font-size: 1.2rem;
@@ -1472,4 +1472,17 @@ a:hover {
     float: right;
     width: 55px;
     margin-top: -11px;
+}
+
+.brand-des p {
+    font-size: 15px;
+    line-height: 28px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.brand-des.all-des p {
+    height: auto;
+    font-size: 15px;
+    line-height: 28px;
 }

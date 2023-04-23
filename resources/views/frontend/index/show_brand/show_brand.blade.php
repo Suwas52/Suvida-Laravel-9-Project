@@ -29,7 +29,7 @@
         <div class="row mt-4">
             <div class="col-lg-9 col-12 ">
                 <div class="row">
-                    <div class="col-12 card p-3">
+                    <div class="col-12 card p-3 brand-des  ">
                         <h5>{{$brand->brand_name}} Brand</h5>
                         <p class="fs-2">Hero Scooters price starts at Rs 68,368. Hero offers total of 6 scooters of
                             which
@@ -40,7 +40,7 @@
                             Xoom 110, Pleasure Plus, Maestro Edge 125, Destini 125 and Maestro Edge 110. Get the</p>
                     </div>
                     <hr>
-                    <button class="btn btn-link" style="color:dark-blue;">Read More </button>
+                    <button  class="btn btn-link read"  style="color:dark-blue;">Read More </button>
                     <div class="col-12 card-header">
                         <div class="row">
                             <div class="col-lg-9">
@@ -167,5 +167,11 @@
     </div>
     </div>
 </section>
+<script >
+    let showDes = document.querySelector(".brand-des");
+    document.querySelector(".read").onclick = () => {
+    showDes.classList.toggle("all-des");
+};
+</script>
 <!-- ***** Fleet Ends ***** -->
 @endsection

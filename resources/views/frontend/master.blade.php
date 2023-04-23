@@ -201,7 +201,7 @@
     <script src="{{asset('frontend/assets/js/jquery-2.1.0.min.js')}}">
     </script>
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
     <!-- Bootstrap -->
     <script src="{{asset('frontend/assets/js/popper.js')}}"></script>
@@ -273,6 +273,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
     var availableTags = [];
     $.ajax({
@@ -299,20 +300,6 @@
     }
     </script>
 
-    <script>
-    // const addBtn = document.querySelector('.search-form');
-
-    let searchForm = document.querySelector(".search-compare_1");
-
-document.querySelector("#search-bn").onclick = () => {
-  searchForm.classList.toggle("active");
-};
-window.onscroll = () => {
-  searchForm.classList.remove("active");
-};
-
-    // const box = document.querySelector('#search-btn');
-    </script>
 
 
 
