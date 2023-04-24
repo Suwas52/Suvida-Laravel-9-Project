@@ -29,17 +29,31 @@
                             <thead>
                                 <tr>
                                     <th>SN</th>
-                                    <th>Emails</th>
+                                    <th>Email</th>
+                                    <th>Subscribed on</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($emails as $key => $email) 
+                                @foreach ($emails as $key => $subscriber) 
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$email->emails}}</td>
+                                    <td>{{$subscriber->email}}</td>
+                                    <td>{{date('d-m-Y h:i:s',strtotime($subscriber['created_at']))}}</td>
                                     <td>
-                                        <a href="{{url('/delete/'.$email->id)}}" class="btn btn-danger"><span class="fa-solid fa-delete-left"></span></a>
+                                        @if($subscriber->status==1)
+                                        <a href="{{route('subscribe.inactive',$subscriber->id)}}"
+                                            class="badge rounded-pill bg-success text-light"><i
+                                                class="fa-solid fa-check"></i></a>
+
+                                        @else <a href="{{route('subscribe.active',$subscriber->id)}}"
+                                            class="badge rounded-pill bg-danger text-light ">
+                                            <i class="fa-solid fa-x"></i></a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{route('delete.subscriber',$subscriber->id)}}" class="btn btn-danger" id="delete"><span class="fa fa-trash"></span></a>
                                     </td>
                                 </tr>
                                 @endforeach

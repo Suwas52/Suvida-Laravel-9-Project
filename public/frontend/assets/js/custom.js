@@ -21,8 +21,6 @@
         }
     });
 
-  
-
     $(".schedule-filter li").on("click", function () {
         var tsfilter = $(this).data("tsfilter");
         $(".schedule-filter li").removeClass("active");
@@ -93,3 +91,4 @@
         });
     }
 })(window.jQuery);
+

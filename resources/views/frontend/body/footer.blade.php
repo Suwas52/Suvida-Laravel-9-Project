@@ -259,9 +259,16 @@
                     <p>Get all the latest information on Bikes, Scooters. Sign up for our newsletter today.</p>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <form class="newsletter" action="{{route('newslettersmail')}}" method="post">
+                    
+                    <form class="newsletter" action="{{route('add-subscriber')}}" method="post">
                         @csrf
-                        <input type="text" name="emails" placeholder="Email Address">
+
+                        <input type="text" name="email"  placeholder="Email Address" >
+                        <span class="text-danger">
+                            @error('email')
+                            {{$message}}
+                            @enderror
+                        </span>
                         <button class="newsletter_submit_btn" type="submit"><i class="fa fa-paper-plane"></i></button>
                     </form>
 
@@ -361,5 +368,7 @@
     </div>
 
 </footer>
+
+
 
 <script src="https://kit.fontawesome.com/fddf5c0916.js" crossorigin="anonymous"></script>

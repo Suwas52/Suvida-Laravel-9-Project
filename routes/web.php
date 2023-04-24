@@ -165,7 +165,9 @@ Route::middleware('auth','role:admin')->group(function() {
 
         Route::controller(NewslettersController::class)->group(function(){
             Route::get('/newsletters','newsletters')->name('newsletters');
-            Route::get('/delete/{id}','deleteEmail');
+            Route::get('/subscribe/inactive/{id}','InactiveSubscribe')->name('subscribe.inactive');
+            Route::get('/subscribe/active/{id}','ActiveSubscribe')->name('subscribe.active');
+            Route::get('/delete/subscriber/{id}','DeleteSubscriber')->name('delete.subscriber');
         });
 
         Route::controller(ContactpageController::class)->group(function(){
@@ -227,7 +229,7 @@ Route::middleware('auth','role:admin')->group(function() {
 
 
 
-Route::post('/newslettersmail', [NewslettersController::class, 'newslettersmail'])->name('newslettersmail');
+Route::post('/add-subscriber-email', [NewslettersController::class, 'AddSubscriber'])->name('add-subscriber');
 
 
 
