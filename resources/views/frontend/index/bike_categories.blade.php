@@ -1,4 +1,11 @@
 @extends('frontend.master')
+<style>
+    .scrollable-menu {
+    height: auto;
+    max-height: 150px;
+    overflow-x: hidden;
+}
+</style>
 @section('main')
 <!-- ***** Call to Action Start ***** -->
 <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/bike-landscape.jpg)">
@@ -26,85 +33,129 @@
 <!-- ***** Fleet Starts ***** -->
 <section class="section" id="trainers">
     <div class="container">
-        <br>
-        <br>
+        <div class="row mt-4">
+            <div class="col-lg-12 col-12 ">
+                <div class="row">
+                    <div class="col-12 card p-3 brand-des  ">
+                        <h5 class=" mb-3">{{$category->category_name}} {{$category['vehicle']['vehicle_name']}} in Nepal</h5>
+                        <p class="fs-2">Hero Scooters price starts at Rs 68,368. Hero offers total of 6 scooters of
+                            which
+                            1
+                            model is
+                            upcoming which include eMaestro. The Hero Maestro Edge 125 is the most expensive among
+                            scooters of Hero with a price tag of Rs 86,766.The most popular names in the line-up include
+                            Xoom 110, Pleasure Plus, Maestro Edge 125, Destini 125 and Maestro Edge 110. Get the</p>
+                    </div>
+                    <hr>
+                    <button  class="btn btn-link read"  style="color:dark-blue;">Read More </button>
+                    <div class="col-12 card-header">
+                        <div class="row">
+                            <div class="col-lg-9 mb-3">
+                                <h5>{{$category->category_name}}  {{$category['vehicle']['vehicle_name']}}</h5>
+                            </div>
+                            <div class="col-lg-3">
+
+
+                              
+                        
+
+                        
 
 
 
-        <div class="row">
+                    </div>
+                    <div class="col-12 card">
+                        <div class="row">
 
-            @foreach($models as $bike)
-            <div class="col-lg-3">
-                <div class="trainer-item">
-                    <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}} class=" image-thumb">
-                        <div><img src="{{asset($bike->model_thumbnail)}}" alt="" /></div>
-                    </a>
-                    <div class="down-content">
 
-                        <div class="bike_name">
-                            <a class="title" title="Model Name"
-                                href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}">{{$bike->model_name}}
-                            </a>
+                            @foreach($models as $bike)
+                            <div class="col-lg-4 mt-2">
+                                <div class="trainer-item">
+                                    <a href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}"
+                                        class=" image-thumb">
+                                        <div><img src="{{asset($bike->model_thumbnail)}}" alt="" /></div>
+                                    </a>
+                                    <div class="down-content">
+
+                                        <div class="bike_name">
+                                            <a class="title" title="Model Name"
+                                                href="{{ url('model/details/'.$bike->id.'/'.$bike->model_slug )}}">{{$bike->model_name}}
+                                            </a>
+                                        </div>
+                                        <div class="price">
+                                            <p>Rs. {{$bike->price}} </p>
+                                        </div>
+
+                                        <p>
+                                            <i class="fa fa-dashboard"></i> {{$bike->mileage}} km/hr
+                                            &nbsp;&nbsp;&nbsp;
+                                            <i class="fa fa-cube"></i> {{$bike->displacement}} cc &nbsp;&nbsp;&nbsp;
+                                            <i class="fa fa-cog"></i> {{$bike->emission_type}} &nbsp;&nbsp;&nbsp;
+                                        </p>
+
+                                        <ul class="social-icons text-center">
+
+                                            @php 
+                                            $user_booking = App\Models\Booking::where('bike_id',$bike->id)->where('user_id',Auth::id())->where('status', 'Pending' )->first();
+                                             @endphp
+                                            @if($user_booking)
+                                            <a @disabled(true)
+                                                        class="primaryButton   btn-dcb p-2 text-success" style="border:1px solid green">
+                                                        <span class=""><i class="fa fa-cart-circle-check "></i></span>
+                                                                Already Booked</a>
+                                            
+                                                    
+                                                   
+                                                    @else
+                                                    <a href="{{ route('booking',$bike->id) }}"
+                                                        class="primaryButton  btn-dcb p-2"
+                                                        style="border:1px solid red"><span><i
+                                                                class="fa fa-cart-plus">
+                                                            </i></span> 
+                                                            Book
+                                                            Now</a>
+                                                    @endif         
+    
+    
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+
                         </div>
-                        <div class="price">
-                            <p>Rs. {{$bike->price}} </p>
-                        </div>
 
-                        <p>
-                            <i class="fa fa-dashboard"></i> {{$bike->mileage}} km/hr &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cube"></i> {{$bike->displacement}} cc &nbsp;&nbsp;&nbsp;
-                            <i class="fa fa-cog"></i> {{$bike->emission_type}} &nbsp;&nbsp;&nbsp;
-                        </p>
-
-                        <ul class="social-icons text-center">
-                            @if($bike['category']['category_name'] == "Upcoming")
-                            <a href="{{ route('prebook',$bike->id) }}"
-                                class="primaryButton  btn-dcb p-2"
-                                style="border:1px solid red"><span><i
-                                        class="fa fa-cart-plus">
-                                    </i>
-                                    PreBook
-                                    Now</a>
-                            @else
-                            
-                            <a href="{{ route('booking',$bike->id) }}"
-                                class="primaryButton  btn-dcb p-2"
-                                style="border:1px solid red"><span><i
-                                        class="fa fa-cart-plus">
-                                    </i>
-                                    Book
-                                    Now</a>
-                                    @endif
-                        </ul>
                     </div>
                 </div>
+
             </div>
-            @endforeach
+
+            <!-- upcoming vehicle -->
+
+            
+            
         </div>
+
+        <!--end upcoming vehicle -->
 
         <br>
 
         <nav>
             <ul class="pagination pagination-lg justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
+                
+               {{$models->links()}}
+                
             </ul>
         </nav>
 
+
     </div>
 </section>
+<script >
+    let showDes = document.querySelector(".brand-des");
+    document.querySelector(".read").onclick = () => {
+    showDes.classList.toggle("all-des");
+};
+</script>
 <!-- ***** Fleet Ends ***** -->
 @endsection

@@ -8,7 +8,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="card shadow swiper card_slider">
                 <div class="swiper-wrapper mt-4">
@@ -72,7 +71,6 @@
             </div>
             
         </div>
-
 
         <br />
 

@@ -14,19 +14,19 @@
  <!-- ***** popular brand Ends ***** -->
 
  <!-- *****Best Bikes Starts ***** -->
- @include('frontend.home.bikes_feature')
+ @include('frontend.home.latest_bikes')
  <!-- ***** Bikes Ends ***** -->
 
  <!-- *****Best Scooter Starts ***** -->
- @include('frontend.home.scooters_feature')
+ @include('frontend.home.best_bikes')
  <!-- ***** Scooter Ends ***** -->
 
  <!-- *****Latest Scooter Starts ***** -->
- @include('frontend.home.top_scooters')
+ @include('frontend.home.latest_scooters')
  <!-- ***** Latest Scooter Ends ***** -->
 
  <!-- *****Popular Scooter Starts ***** -->
- @include('frontend.home.popular_scooter')
+ @include('frontend.home.best_scooters')
  <!-- ***** Scooter Ends ***** -->
 
 

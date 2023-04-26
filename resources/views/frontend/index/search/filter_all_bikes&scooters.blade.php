@@ -132,13 +132,8 @@
                 <div class="row">
                     <div class="col-12 card p-3">
                         <h5> Brand</h5>
-                        <p class="fs-2">Hero Scooters price starts at Rs 68,368. Hero offers total of 6 scooters of
-                            which
-                            1
-                            model is
-                            upcoming which include eMaestro. The Hero Maestro Edge 125 is the most expensive among
-                            scooters of Hero with a price tag of Rs 86,766.The most popular names in the line-up include
-                            Xoom 110, Pleasure Plus, Maestro Edge 125, Destini 125 and Maestro Edge 110. Get the</p>
+                        
+                        <p class="fs-2">There are {{$models->count()}} bikes and scooter currently on sale from various manufacturers starting from 100,821. The most popular products under this bracket are the Yamaha MT 15 V2 (Rs. 4.30Lakh), Hero Splendor Plus (Rs. 86,930) and Yamaha R15 V4 (Rs. 2.07 Lakh) (all prices on-road). To know more about the latest prices of Bikes & Scooters in India in your city, download BikeDekho App & get details on offers, variants, specifications, pictures, mileage, reviews and other details, please select your desired bike from the list below.</p>
                     </div>
                     <hr>
                     <button class="btn btn-link" style="color:dark-blue;">Read More </button>
@@ -185,11 +180,29 @@
                                         </p>
 
                                         <ul class="social-icons text-center">
-                                            <a href="{{ route('booking',$bike->id) }}"
-                                                class="primaryButton  btn-dcb p-2" style="border:1px solid red"><span><i
-                                                        class="fa fa-cart-plus"> </i>
-                                                    Book
-                                                    Now</a>
+
+                                            @php 
+                                            $user_booking = App\Models\Booking::where('bike_id',$bike->id)->where('user_id',Auth::id())->where('status', 'Pending' )->first();
+                                             @endphp
+                                            @if($user_booking)
+                                            <a @disabled(true)
+                                                        class="primaryButton   btn-dcb p-2 text-success" style="border:1px solid green">
+                                                        <span class=""><i class="fa fa-cart-circle-check "></i></span>
+                                                                Already Booked</a>
+                                            
+                                                    
+                                                   
+                                                    @else
+                                                    <a href="{{ route('booking',$bike->id) }}"
+                                                        class="primaryButton  btn-dcb p-2"
+                                                        style="border:1px solid red"><span><i
+                                                                class="fa fa-cart-plus">
+                                                            </i></span> 
+                                                            Book
+                                                            Now</a>
+                                                    @endif         
+    
+    
                                         </ul>
                                     </div>
                                 </div>
@@ -207,6 +220,7 @@
 
 
         </div>
+       
     </div>
 </section>
 <!-- ***** Fleet Ends ***** -->

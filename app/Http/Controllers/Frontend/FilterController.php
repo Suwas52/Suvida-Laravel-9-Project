@@ -27,7 +27,7 @@ class FilterController extends Controller
         }  
         
         else {
-            $models = VehicleModel::orderBy('model_name','ASC')->get();
+            $models = VehicleModel::orderBy('model_name','ASC')->limit(15)->get();
         }
 
         if (!empty($_GET['vehicle'])){

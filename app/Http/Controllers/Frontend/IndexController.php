@@ -159,15 +159,7 @@ class IndexController extends Controller
         $categories = Category::where('id',$id)->get();
         
 
-        $models = VehicleModel::where('category_id',$id)->get();
-
-        
-            
-            
-        
-        
-        
-        
+        $models = VehicleModel::where('category_id',$id)->paginate(6);
         
     
        return view('frontend.index.bike_categories',compact('categories','models'));
