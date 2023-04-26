@@ -124,7 +124,7 @@
                                         </tr>
                                     </thead>
                                     @php
-                                    $booking = App\Models\Booking::latest()->get();
+                                    $booking = App\Models\Booking::latest()->paginate(10);
                                     @endphp
                                     <tbody>
                                         @foreach($booking as $key => $user_book )
@@ -177,6 +177,7 @@
 
             </div>
         </div>
+        <div class="justfy-content-left">{{$booking->links()}}</div>
         <!-- /.orders -->
 
     </div>
