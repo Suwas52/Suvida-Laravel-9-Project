@@ -80,4 +80,14 @@ class TestRideController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+    public function DeleteTestRide($id){
+        TestRide::findOrFail($id)->delete();
+        $notification = array(
+            'message' => 'TestRide Delete Success',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }

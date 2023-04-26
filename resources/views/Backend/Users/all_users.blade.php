@@ -40,7 +40,7 @@
                                         <img class="rounded-circle" src="{{(!empty($user->photo))?url('upload/userImages/'.$user->photo):url('upload/NoImage.jpg')}}" alt="user" style="height:50px" width="50px">
                                     </td>
                                     
-                                    <td>{{$user->name}}</td>
+                                    <td><a href="{{route('user.details',$user->id)}}">{{$user->name}}</a></td>
                                     <td>{{$user->email}}</td>
                                     <td>
                                         @if($user->UserOnline())

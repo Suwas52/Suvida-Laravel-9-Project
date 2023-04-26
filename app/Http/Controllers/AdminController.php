@@ -163,6 +163,11 @@ class AdminController extends Controller
         return view('Backend.Users.all_users',compact('users'));
     }
 
+    public function UserDetails($id){
+        $userDetails = User::findOrFail($id);
+        return view('Backend.Users.user_profile',compact('userDetails'));
+    }
+
     public function DeleteUsers($id){
         User::findOrFail($id)->delete();
 
@@ -171,7 +176,7 @@ class AdminController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->back()->with($notification);
+        return redirect()->route('all.users')->with($notification);
     }
 
 

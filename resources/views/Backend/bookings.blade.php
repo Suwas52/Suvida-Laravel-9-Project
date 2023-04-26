@@ -53,7 +53,7 @@
                                         <img class="rounded-circle" src="{{(!empty($book->rUser->photo))?url('upload/userImages/'.$book->rUser->photo):url('upload/NoImage.jpg')}}" alt="user" style="height:50px" width="50px">
                                        
                                     </td>
-                                    <td> <span class="name">{{$book['rUser']['name']}}</span> </td>
+                                    <td> <a class="name" href="{{route('user.details',$book['rUser']['id'])}}">{{$book['rUser']['name']}}</a> </td>
                                     <td> <span class="product">{{$book['rBike']['model_name']}}</span>
                                     </td>
                                     <td> <span class="product">{{$book->created_at}}</span>

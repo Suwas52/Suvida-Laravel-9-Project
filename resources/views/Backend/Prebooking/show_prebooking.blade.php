@@ -53,7 +53,7 @@
                                         <img class="rounded-circle" src="{{(!empty($user_prebook->userId->photo))?url('upload/userImages/'.$user_prebook->userId->photo):url('upload/NoImage.jpg')}}" alt="user" style="height:50px" width="50px">
                                        
                                     </td>
-                                    <td> <span class="name">{{$user_prebook['userId']['name']}}</span> </td>
+                                    <td> <a href="{{route('user.details',$user_prebook['userId']['id'])}}">{{$user_prebook['userId']['name']}}</a> </td>
                                     <td> <span class="product">{{$user_prebook['bikeId']['model_name']}}</span>
                                     </td>
                                     <td> <span class="product">{{$user_prebook->created_at}}</span>

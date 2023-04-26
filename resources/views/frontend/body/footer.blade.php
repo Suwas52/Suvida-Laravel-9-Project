@@ -325,9 +325,18 @@
                         <ul class="footer-links">
                             <li><a href="{{route('main')}}">Home</a>
                             </li>
-                            <li><a href="#">Best Bikes</a>
+                            @php
+                            $bike = App\Models\Vehicle::where('vehicle_name','Bike')->first();
+                            $scooter = App\Models\Vehicle::where('vehicle_name','Scooter')->first();
+                           
+                            $best_bikes =App\Models\Category::where('category_name','Best')->where('vehicle_id',$bike->id)->first(); 
+                            $best_scooter =App\Models\Category::where('category_name','Best')->where('vehicle_id',$scooter->id)->first(); 
+                            
+                            @endphp
+                            
+                            <li><a href="{{ url('vehicle/'.$best_bikes->id.'/'.$best_bikes->category_slug )}}">Best Bikes</a>
                             </li>
-                            <li><a href="#">Best Scooters</a>
+                            <li><a href="{{ url('vehicle/'.$best_scooter->id.'/'.$best_scooter->category_slug )}}">Best Scooters</a>
                             </li>
                             <li><a href="{{route('contact.admin')}}">Contact Us</a>
                             </li>
@@ -336,9 +345,9 @@
                     <div class="col-md-3 col-sm-6">
                         <h3>OUR SERVICES</h3>
                         <ul class="footer-category">
-                            <li><a href="#">Used Vehicles</a>
-                            </li>
-                            <li><a href="#">Compare Vehicles</a>
+                                <li><a href="{{route('test.ride')}}">Test Ride</a>
+                                </li>
+                            <li><a href="{{route('compare')}}">Compare Vehicles</a>
                             </li>
                         </ul>
                         <div class="clearfix"></div>

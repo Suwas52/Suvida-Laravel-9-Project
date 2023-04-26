@@ -441,4 +441,10 @@ class ModelController extends Controller
         return json_encode($vehicleModel);
     }
 
+    public function VehicleModelDetails($id){
+        $model = VehicleModel::findOrFail($id);
+        
+        return view('Backend.VehicleModel.model_detail',compact('model'));
+    }
+
 }

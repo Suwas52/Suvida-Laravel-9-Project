@@ -139,7 +139,7 @@
                                                 </div>
                                             </td>
                                             <td> {{$user_book['rUser']['id']}}</td>
-                                            <td> <span class="name">{{$user_book['rUser']['name']}}</span> </td>
+                                            <td> <a class="name" href="{{route('user.details',$user_book['rUser']['id'])}}">{{$user_book['rUser']['name']}}</a> </td>
                                             <td> <span class="product">{{$user_book['rBike']['model_name']}}</span>
                                             </td>
                                             <td> <span class="product">{{$user_book->created_at}}</span>

@@ -42,7 +42,8 @@
                         </div>
 
                     </li>
-                    <li><a href='#tabs-2'><i class="fa fa-list"></i> Booking</a></a></li>
+                    <li><a href='#tabs-2'><i class="fa fa-list"></i>Booking List</a></a></li>
+                    <li><a href='#tabs-3'><i class="fa fa-list"></i> Test Ride</a></a></li>
 
 
                     <li><a href='#tabs-4'><i class="fa fa-sign-in"></i> Account Details</a></a></li>
@@ -78,11 +79,11 @@
                                         </tr>
                                     </thead>
                                     @php
-                                    $booking
-                                    =App\Models\Booking::with('rBike')->where('user_id',Auth::id())->latest()->get();
+                                    $books
+                                    =App\Models\Booking::with('rBike')->where('user_id',Auth::id())->latest()->paginate(5);
                                     @endphp
                                     <tbody>
-                                        @foreach($booking as $key => $booking)
+                                        @foreach($books as $key => $booking)
                                         <tr>
                                             <td>{{ $key+1}} </td>
                                             <td>{{ $booking['rBike']['model_name']}} </td>
@@ -116,6 +117,76 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <div class="row">{{$books->links()}}</div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div id='tabs-3'>
+
+                        <div class="card shadow">
+
+
+                            <div class="card-header">
+                                <strong class="card-title text-center">Your Test Ride </strong>
+                            </div>
+
+
+
+                            <div class="card-body">
+
+                                <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>SN</th>
+                                            <th>Vehicle Name</th>
+                                            <th>Image</th>
+                                            <th>Time</th>
+                                            <th>Action</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    @php
+                                    $test_ride
+                                    =App\Models\TestRide::with('bikeId')->where('user_id',Auth::id())->latest()->paginate(5);
+                                    @endphp
+                                    <tbody>
+                                        @foreach($test_ride as $key => $booking)
+                                        <tr>
+                                            <td>{{ $key+1}} </td>
+                                            <td>{{ $booking['bikeId']['model_name']}} </td>
+                                            <td> <a href="{{ url('model/details/'.$booking->bikeId->id.'/'.$booking->bikeId->model_slug )}}"
+                                                    title="View Bike"><img
+                                                        src="{{ asset( $booking->bikeId->model_thumbnail) }}"
+                                                        width="100"></a></td>
+                                            <td> <span class="product">{{$booking->created_at}}</span>
+                                                        </td>
+                                            <td class="">
+                                                @if($booking->status == "Verified")
+                                                <a class="btn btn-success" disabled><i
+                                                        class="fa-solid fa-check"></i></a>
+                                                @else
+                                                <a href=" {{route('delete.test-ride',$booking->id)}}"
+                                                    class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                                @endif
+
+
+                                            </td>
+                                            <td class="text-center">
+                                                @if($booking->status == "Verified")
+                                                <div class="badge rounded-pill  text-success w-100">Test Ride
+                                                    Accept</div>
+                                                @else
+                                                <div class="badge rounded-pill  text-danger w-100">Test Ride 
+                                                    Request</div>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <div class="row">{{$test_ride->links()}}</div>
                             </div>
 
 

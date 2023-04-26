@@ -49,7 +49,6 @@ Route::middleware('auth','role:user','verified')->group(function() {
     
     
     
-    
     //preBooking by user
     Route::controller(PreBookingController::class)->group(function(){
             Route::get('/prebook/{id}','PreBook')->name('prebook');
@@ -62,6 +61,7 @@ Route::middleware('auth','role:user','verified')->group(function() {
     Route::controller(TestRideController::class)->group(function(){
         Route::get('/test/ride','TestRide')->name('test.ride');
         Route::post('/add/test/ride','AddTestRide')->name('add.test.ride');
+        Route::get('/delete/test-ride/{id}','DeleteTestRide')->name('delete.test-ride');
         
     });
     //end TestRide
@@ -160,6 +160,7 @@ Route::middleware('auth','role:admin')->group(function() {
             Route::get('/model/active/{id}','ModelActive')->name('model.active');
             Route::get('/delete/model/{id}','DeleteModel')->name('delete.model');
             Route::get('/vehiclemodel/ajax/{vehicle_id}','GetVehicleModel');
+            Route::get('/vehicle/model/details/{id}','VehicleModelDetails')->name('vehicle.model.details');
             
         });
 
@@ -185,6 +186,8 @@ Route::middleware('auth','role:admin')->group(function() {
         Route::controller(AdminController::class)->group(function(){
             Route::get('/all/users',[AdminController::class,'AllUsers'])->name('all.users');
             Route::get('/delete/users/{id}',[AdminController::class,'DeleteUsers'])->name('delete.user');
+            Route::get('/users/details/{id}','UserDetails')->name('user.details');
+            
         });
         
 

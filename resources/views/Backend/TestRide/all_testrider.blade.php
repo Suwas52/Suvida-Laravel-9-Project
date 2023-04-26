@@ -53,7 +53,7 @@
                                         <img class="rounded-circle" src="{{(!empty($testrider->userId->photo))?url('upload/userImages/'.$testrider->userId->photo):url('upload/NoImage.jpg')}}" alt="user" style="height:50px" width="50px">
                                         
                                     </td>
-                                    <td> <span class="name">{{$testrider['userId']['name']}}</span> </td>
+                                    <td> <a  href="{{route('user.details',$testrider['userId']['id'])}}">{{$testrider['userId']['name']}}</a> </td>
                                     <td> <span class="product">{{$testrider['bikeId']['model_name']}}</span>
                                     </td>
                                     <td> <span class="product">{{$testrider->created_at}}</span>

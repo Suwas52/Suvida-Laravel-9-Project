@@ -19,8 +19,11 @@ class BookingController extends Controller
     
     public function booking($id){
         $bike=VehicleModel::findOrFail($id);
-        return view('booking',compact('bike'));
+        return view('frontend.index.booking.vehicle_booking',compact('bike'));
     }
+
+   
+
     public function bookingSubmit(Request $request){
 
         $user = User::where('role','admin')->get();
