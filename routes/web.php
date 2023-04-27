@@ -65,6 +65,12 @@ Route::middleware('auth','role:user','verified')->group(function() {
         
     });
     //end TestRide
+
+    Route::get('markRead', function(){
+        auth()->user()->unreadNotifications->marKAsRead();
+        return redirect()->back();
+        
+    })->name('mark.reads');
     
     
     //user only contact to admin 
@@ -218,6 +224,14 @@ Route::middleware('auth','role:admin')->group(function() {
             
             
         });
+
+        //Notification marked
+
+        Route::get('marKAsRead', function(){
+            auth()->user()->unreadNotifications->marKAsRead();
+            return redirect()->back();
+            
+        })->name('mark.read');
 
         
 

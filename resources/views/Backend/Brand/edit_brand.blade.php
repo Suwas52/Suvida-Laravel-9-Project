@@ -48,6 +48,11 @@
                                     class="form-control"></div>
                             <img src="{{asset($brands->brand_logo)}}" alt="brand_logo"
                                 style="width:100px; height:100px">
+                                <div class="form-group">
+                                    <label for="description" class="form-control-label">Description</label>
+                                    <textarea name="description" id="description" class="form-control mb-3" id="description"
+                                        rows="4" placeholder="{{$brands->description}}"></textarea>
+                                </div>
                             <div class="col-sm-6 text-secondary">
                                 <input type="submit" class="btn btn-primary px-4 mt-2" value="Submit" />
                             </div>

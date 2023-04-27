@@ -277,26 +277,25 @@
                     <div class="col-md-12">
                         <div class="standard_social_links">
                             <div>
-                                <li class="round-btn btn-facebook"><a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <li class="round-btn btn-facebook"><a href="https://www.facebook.com/su.waas.5/"><i class="fab fa-facebook-f"></i></a>
 
                                 </li>
-                                <li class="round-btn btn-linkedin"><a href="#"><i class="fab fa-linkedin-in"
+                                <li class="round-btn btn-linkedin"><a href="https://www.linkedin.com/in/subash-danuwar/"><i class="fab fa-linkedin-in"
                                             aria-hidden="true"></i></a>
 
                                 </li>
-                                <li class="round-btn btn-twitter"><a href="#"><i class="fab fa-twitter"
+                                <li class="round-btn btn-twitter"><a href="https://twitter.com/suwas_danuwar"><i class="fab fa-twitter"
+                                            aria-hidden="true"></i></a>
+                                </li>
+                                <li class="round-btn btn-instagram"><a href="https://www.instagram.com/su_waas52/"><i class="fab fa-instagram"
                                             aria-hidden="true"></i></a>
 
                                 </li>
-                                <li class="round-btn btn-instagram"><a href="#"><i class="fab fa-instagram"
+                                <li class="round-btn btn-github"><a href="https://github.com/suwas52"><i class="fab fa-github"
                                             aria-hidden="true"></i></a>
 
                                 </li>
-                                <li class="round-btn btn-whatsapp"><a href="#"><i class="fab fa-whatsapp"
-                                            aria-hidden="true"></i></a>
-
-                                </li>
-                                <li class="round-btn btn-envelop"><a href="#"><i class="fa fa-envelope"
+                                <li class="round-btn btn-envelop"><a href="https://www.messenger.com/t/2234162790040870"><i class="fa fa-envelope"
                                             aria-hidden="true"></i></a>
 
                                 </li>
@@ -355,10 +354,10 @@
                     <div class="col-md-3 col-sm-6">
                         <h3>Contact Us</h3>
                         <ul class="footer-links">
-                            <li><a href="#">+977-9842069250</a>
+                            <li><a href="{{route('contact.admin')}}">+977-9842069250</a>
                             </li>
 
-                            <li><a href="#">suvidaservice@gmaill.com</a>
+                            <li><a href="{{route('contact.admin')}}">suvidaservice@gmaill.com</a>
                             </li>
                         </ul>
                     </div>

@@ -130,13 +130,13 @@
             <!--end upcoming vehicle -->
             <div class="col-lg-9 col-12 ">
                 <div class="row">
-                    <div class="col-12 card p-3">
+                    <div class="col-12 card p-3 brand-des">
                         <h5> Brand</h5>
                         
                         <p class="fs-2">There are {{$models->count()}} bikes and scooter currently on sale from various manufacturers starting from 100,821. The most popular products under this bracket are the Yamaha MT 15 V2 (Rs. 4.30Lakh), Hero Splendor Plus (Rs. 86,930) and Yamaha R15 V4 (Rs. 2.07 Lakh) (all prices on-road). To know more about the latest prices of Bikes & Scooters in India in your city, download BikeDekho App & get details on offers, variants, specifications, pictures, mileage, reviews and other details, please select your desired bike from the list below.</p>
                     </div>
                     <hr>
-                    <button class="btn btn-link" style="color:dark-blue;">Read More </button>
+                    <button class="btn btn-link read" style="color:dark-blue;">Read More </button>
                     <div class="col-12 card-header">
                         <div class="row">
                             <div class="col-lg-12">
@@ -223,6 +223,12 @@
        
     </div>
 </section>
+<script >
+    let showDes = document.querySelector(".brand-des");
+    document.querySelector(".read").onclick = () => {
+    showDes.classList.toggle("all-des");
+};
+</script>
 <!-- ***** Fleet Ends ***** -->
 
 <!-- price-range-slider -->

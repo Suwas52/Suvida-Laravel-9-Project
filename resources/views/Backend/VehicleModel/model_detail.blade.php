@@ -171,6 +171,15 @@
                   
                     <div class="row">
                       <div class="col-sm-6">
+                        <h6 class="mb-0">Category</h6>
+                      </div>
+                      <div class="col-sm-6 text-secondary">
+                          {{$model['category']['category_name']}}
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-6">
                         <h6 class="mb-0">Model Color</h6>
                       </div>
                       <div class="col-sm-6 text-secondary">
@@ -357,7 +366,16 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-body">
-                  
+
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <h6 class="mb-0">Brand</h6>
+                    </div>
+                    <div class="col-sm-6 text-secondary">
+                        {{$model['brand']['brand_name']}}
+                    </div>
+                  </div>
+                  <hr>
                   
                     <div class="row">
                       <div class="col-sm-6">
@@ -537,6 +555,13 @@
               </div>
             </div>
           </div>
+
+        </div>
+          </div>
+          
+
+
+
           
 
         </div>

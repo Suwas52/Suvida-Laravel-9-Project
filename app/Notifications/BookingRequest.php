@@ -56,7 +56,8 @@ class BookingRequest extends Notification
     public function toArray($notifiable)
     {
         return [
-            'message' => 'New Booking Request ' ,
+            'name' => $this->first_name,
+            'message' => ' Booking Request ' ,
         ];
     }
 }

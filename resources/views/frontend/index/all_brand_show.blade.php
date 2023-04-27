@@ -77,5 +77,11 @@
 
     </div>
 </section>
+<script >
+    let showDes = document.querySelector(".brand-des");
+    document.querySelector(".read").onclick = () => {
+    showDes.classList.toggle("all-des");
+};
+</script>
 <!-- ***** Fleet Ends ***** -->
 @endsection

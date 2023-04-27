@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('vehicle_id');
             $table->string('category_name');
             $table->string('category_slug');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

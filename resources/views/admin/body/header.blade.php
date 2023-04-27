@@ -16,13 +16,13 @@
     <div class="top-right ">
         <div class="header-menu">
             <div class="header-left">
-                <button class="search-trigger"><i class="fa fa-search"></i></button>
+                {{-- <button class="search-trigger"><i class="fa fa-search"></i></button>
                 <div class="form-inline">
                     <form class="search-form">
                         <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
                         <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                     </form>
-                </div>
+                </div> --}}
 
                 <div class="dropdown for-notification">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
@@ -36,18 +36,19 @@
                         <span class="count bg-danger">{{$NotCount}}</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="notification">
+                         <a class="marked" href="{{route('mark.read')}}">Mark all </a>
 
                         <p class="red">You have {{$NotCount}} Notification</p>
                        
-
                         @php
                         $user = Auth::user(); 
                         @endphp 
 
-                        @forelse($user->notifications as $notification)
-                        <a class="dropdown-item media" href="#">
-                            
+                        @forelse($user->unreadNotifications as $notification)
+
+                        <a class="dropdown-item media" href="{{route('mark.read')}}">
                             <i class="fa fa-check"></i>
+                            
                             <p>{{$notification->data['message']}}</p>
                             <div class="msg-time ml-4" >
                                 <span class="time float-right ">{{Carbon\Carbon::parse($notification->created_at)->diffForHumans()}}</span>
@@ -64,7 +65,7 @@
                     </div>
                 </div>
 
-                <div class="dropdown for-message">
+                {{-- <div class="dropdown for-message">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-envelope"></i>
@@ -107,7 +108,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             @php

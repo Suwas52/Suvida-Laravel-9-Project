@@ -28,6 +28,7 @@ class BrandController extends Controller
             'brand_name'=>$request->brand_name,
             'brand_slug'=>strtolower(str_replace(' ','-',$request->brand_name)),
             'brand_logo'=>$save_img_url,
+            'description'=>$request->description,
         ]);
 
         $notification = array(
@@ -62,6 +63,7 @@ class BrandController extends Controller
                 'brand_name'=>$request->brand_name,
                 'brand_slug'=>strtolower(str_replace(' ','-',$request->brand_name)),
                 'brand_logo'=>$save_img_url,
+                'description'=>$request->description,
             ]);
 
             $notification = array(
@@ -75,6 +77,7 @@ class BrandController extends Controller
             Brand::find($brand_id)->update([
                 'brand_name'=>$request->brand_name,
                 'brand_slug'=>strtolower(str_replace(' ','-',$request->brand_name)),
+                'description'=>$request->description,
             ]);
 
             $notification = array(

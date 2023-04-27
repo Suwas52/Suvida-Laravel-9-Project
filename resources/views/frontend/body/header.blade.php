@@ -79,7 +79,7 @@
                                     style="height: 30px; width: 30px; margin-bottom: 5px" alt="" />{{$NotCount}}</a>
                                     <div class="dropdown-menu">
                                         
-                                
+                                        <span class="red m-4" >You have {{$NotCount}} Notification</span>
 
                                         <div class="message media-body m-3">
                                             
@@ -87,14 +87,19 @@
                                             $user = Auth::user();
                                             @endphp
 
-                                            @forelse($user->notifications as $notification)
-                                            <a class="text-left" href="#">{{$notification->data['message']}}</a>
+
+
+                                            @forelse($user->unreadNotifications as $notification)
+
+                                            <a class="text-left" href="{{route('mark.reads')}}">{{$notification->data['message']}}</a>
                                             
                                             <p class="time text-right ml-3">{{Carbon\Carbon::parse($notification->created_at)->diffForHumans()}}</p>
                                            
                                             @empty
-
+                                            
                                             @endforelse
+
+                                            
                                             
                                             
                                            

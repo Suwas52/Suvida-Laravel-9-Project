@@ -54,6 +54,11 @@
                                     placeholder="Enter Category Name" class="form-control"
                                     value="{{$category->category_name}}">
                             </div>
+                            <div class="form-group">
+                                <label for="description" class="form-control-label">Description</label>
+                                <textarea name="description" id="description" class="form-control mb-3" id="description"
+                                    rows="4" placeholder="{{$category->description}}"></textarea>
+                            </div>
                             <div class="col-sm-6 text-secondary">
                                 <input type="submit" class="btn btn-primary px-4" value="Submit" />
                             </div>

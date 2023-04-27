@@ -53,7 +53,7 @@
                                     <td class="serial">{{$key+1}}.</td>
                                     
                                     <td>
-                                        {{$setup['model']['model_name']}}
+                                        <a href="{{route('vehicle.model.details',$setup['model']['id'])}}">{{$setup['model']['model_name']}}</a>
                                     </td>
                                    
                                     <td>

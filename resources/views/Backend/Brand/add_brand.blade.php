@@ -42,6 +42,11 @@
                                     Photo</label><input type="file" name="brand_logo" id="brand_logo"
                                     class="form-control"></div>
                             <img src="{{url('upload/NoImage.jpg')}}" alt="Admin" style="width:100px; height:100px">
+                            <div class="form-group">
+                                <label for="description" class="form-control-label">Description</label>
+                                <textarea name="description" id="description" class="form-control mb-3" id="description"
+                                    rows="4" placeholder="Enter the description about This brand"></textarea>
+                            </div>
                             <div class="col-sm-6 text-secondary">
                                 <input type="submit" class="btn btn-primary px-4" value="Submit" />
                             </div>

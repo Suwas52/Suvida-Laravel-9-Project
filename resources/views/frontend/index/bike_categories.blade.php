@@ -38,13 +38,7 @@
                 <div class="row">
                     <div class="col-12 card p-3 brand-des  ">
                         <h5 class=" mb-3">{{$category->category_name}} {{$category['vehicle']['vehicle_name']}} in Nepal</h5>
-                        <p class="fs-2">Hero Scooters price starts at Rs 68,368. Hero offers total of 6 scooters of
-                            which
-                            1
-                            model is
-                            upcoming which include eMaestro. The Hero Maestro Edge 125 is the most expensive among
-                            scooters of Hero with a price tag of Rs 86,766.The most popular names in the line-up include
-                            Xoom 110, Pleasure Plus, Maestro Edge 125, Destini 125 and Maestro Edge 110. Get the</p>
+                        <p class="fs-2">{{$category->description}}</p>
                     </div>
                     <hr>
                     <button  class="btn btn-link read"  style="color:dark-blue;">Read More </button>

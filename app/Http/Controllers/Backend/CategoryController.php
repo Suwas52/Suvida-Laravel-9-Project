@@ -24,6 +24,7 @@ class CategoryController extends Controller
            'vehicle_id'=>$request->vehicle_name, 
            'category_name'=>$request->category_name,
            'category_slug'=>strtolower(str_replace(' ','-',$request->category_name)),
+           'description'=>$request->description, 
         ]);
 
         
@@ -48,6 +49,7 @@ class CategoryController extends Controller
             'vehicle_id' => $request->vehicle_name,
             'category_name' => $request->category_name,
             'category_slug' => strtolower(str_replace(' ','-',$request->category_name)),
+            'description' => $request->description,
         ]);
 
         $notification = array (
