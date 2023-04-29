@@ -149,8 +149,14 @@
                                     <p>Rs. {{$bike->price}} </p>
                                 </div>
 
-                                <p>Expected Launch: June
+                                @php 
+                                $prebookSetup = App\Models\PrebookSetup::where('model_id',$bike->id)->first();
+                                @endphp
+                                @if($prebookSetup )
+                                <p>Expected Launch: {{$prebookSetup->launch_date}}
                                 </p>
+                                @else
+                                @endif
 
                                 <ul class="social-icons text-center">
                                     <a href="{{ route('booking',$bike->id) }}" class="primaryButton  btn-dcb p-2"

@@ -132,8 +132,11 @@
                 <div class="row">
                     <div class="col-12 card p-3 brand-des">
                         <h5> Brand</h5>
+                        @php 
+                        $totalModels = App\Models\VehicleModel::count();
+                        @endphp
                         
-                        <p class="fs-2">There are {{$models->count()}} bikes and scooter currently on sale from various manufacturers starting from 100,821. The most popular products under this bracket are the Yamaha MT 15 V2 (Rs. 4.30Lakh), Hero Splendor Plus (Rs. 86,930) and Yamaha R15 V4 (Rs. 2.07 Lakh) (all prices on-road). To know more about the latest prices of Bikes & Scooters in India in your city, download BikeDekho App & get details on offers, variants, specifications, pictures, mileage, reviews and other details, please select your desired bike from the list below.</p>
+                        <p class="fs-2">There are {{$totalModels}} bikes and scooters currently on sale from various manufacturers starting from 100,821. The most popular products under this bracket are the Yamaha MT 15 V2 (Rs. 4.30Lakh), Hero Splendor Plus (Rs. 286,930) and Yamaha R15 V4 (Rs. 4.07 Lakh) (all prices on-road). To know more about the latest prices of Bikes & Scooters in Nepal in your city, download BikeDekho App & get details on offers, variants, specifications, pictures, mileage, reviews and other details, please select your desired bike from the list below.</p>
                     </div>
                     <hr>
                     <button class="btn btn-link read" style="color:dark-blue;">Read More </button>
@@ -193,13 +196,24 @@
                                                     
                                                    
                                                     @else
-                                                    <a href="{{ route('booking',$bike->id) }}"
+                                                    @if($bike['category']['category_name'] == "Upcoming")
+                                                    <a href="{{ route('prebook',$bike->id) }}"
                                                         class="primaryButton  btn-dcb p-2"
                                                         style="border:1px solid red"><span><i
                                                                 class="fa fa-cart-plus">
-                                                            </i></span> 
-                                                            Book
+                                                            </i>
+                                                            PreBook
                                                             Now</a>
+                                                    @else
+                                                    
+                                                    <a href="{{ route('booking',$bike->id) }}"
+                                                class="primaryButton  btn-dcb p-2"
+                                                style="border:1px solid red"><span><i
+                                                        class="fa fa-cart-plus">
+                                                    </i>
+                                                    Book
+                                                    Now</a>
+                                                    @endif
                                                     @endif         
     
     

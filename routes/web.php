@@ -53,6 +53,7 @@ Route::middleware('auth','role:user','verified')->group(function() {
     Route::controller(PreBookingController::class)->group(function(){
             Route::get('/prebook/{id}','PreBook')->name('prebook');
             Route::post('/add/prebook','AddPrebook')->name('add.prebook');
+            Route::get('/remove/prebook/{id}','RemovePrebook')->name('remove.prebook');
             
     });
     //end preBooking

@@ -46,7 +46,10 @@
                                                 <label for="firstname"> <span class="text-danger align-middle">* </span>
                                                     <strong>First Name</strong> :</label>
                                                 <input type="text" class="form-control" id="firstname"
-                                                    placeholder="First Name" name="first_name" > 
+                                                    placeholder="First Name" name="first_name" >
+                                                    @error('first_name')
+                                                    <span class="text-danger">{{$message}}</span>
+                                                    @enderror 
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="lastname"><span class="text-danger align-middle">*
@@ -54,6 +57,9 @@
                                                         Name:</strong> </label>
                                                 <input type="text" class="form-control" id="lastname"
                                                     placeholder="Last Name" name="last_name">
+                                                    @error('last_name')
+                                                    <span class="text-danger">{{$message}}</span>
+                                                    @enderror
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -62,6 +68,9 @@
                                                     </span><strong>Email:</strong> </label>
                                                 <input type="email" class="form-control" id="email" name="email"
                                                     placeholder="Enter Email Address">
+                                                    @error('email')
+                                                    <span class="text-danger">{{$message}}</span>
+                                                    @enderror
 
                                             </div>
                                             <div class="form-group col-md-6">
@@ -69,6 +78,9 @@
                                                     </span><strong>Mobile:</strong> </label>
                                                 <input type="tel" class="form-control" id="phone" name="phone_no"
                                                     placeholder="Enter Mobile Number">
+                                                    @error('phone_no')
+                                                    <span class="text-danger">{{$message}}</span>
+                                                    @enderror
 
                                             </div>
                                         </div>
@@ -77,16 +89,34 @@
                                                 <label for="datetime-local"><span class="text-danger align-middle">*
                                                     </span><strong>Prebook Date:</strong></label>
                                                 <input type="datetime-local" class="form-control" id="datetime-local" name="prebook_time"
-                                                    placeholder="Zone Name">
+                                                    placeholder="Zone Name" required>
+                                                    
 
                                             </div>
                                                 
                                             <div class="form-group col">
                                                 <label for="color"><span class="text-danger align-middle">*
                                                     </span><strong>Model Color:</strong> </label>
-                                                <input type="text" class="form-control" id="color" name="model_color"
-                                                    placeholder="Choose Model Color">
-    
+                                      
+                                                    <select name="model_color" id="select" class="form-control ">
+                                                        <option disabled="" selected="">Model Color</option>
+                                                        @php
+                                                        $colors= explode("," , $model->model_color)
+                                                        @endphp
+                                                        
+                                                        @foreach($colors as $color)
+                    
+                                                            <option value="{{$color}}">{{$color}}</option>                   
+                    
+                                                        @endforeach
+                                                        
+                                                    </select>
+                                                    <span class="text-danger">
+                                                        @error('model_color')
+                                                        {{$message}}
+                                                        @enderror
+                                                    </span>
+
                                             </div>
                                                 
 
@@ -99,6 +129,11 @@
                                                     </span><strong>District:</strong> </label>
                                                 <input type="text" class="form-control" id="district" name="district"
                                                     placeholder="District Name">
+                                                    <span class="text-danger">
+                                                        @error('district')
+                                                        {{$message}}
+                                                        @enderror
+                                                    </span>
 
                                             </div>
                                             <div class="form-group col-6">
@@ -106,6 +141,11 @@
                                                     </span><strong>City:</strong> </label>
                                                 <input type="text" class="form-control" id="city" name="city"
                                                     placeholder="City Name">
+                                                    <span class="text-danger">
+                                                        @error('city')
+                                                        {{$message}}
+                                                        @enderror
+                                                    </span>
 
                                             </div>
 
@@ -117,6 +157,11 @@
                                                     </span><strong>Zone:</strong></label>
                                                 <input type="text" class="form-control" id="zone" name="zone"
                                                     placeholder="Zone Name">
+                                                    <span class="text-danger">
+                                                        @error('zone')
+                                                        {{$message}}
+                                                        @enderror
+                                                    </span>
 
                                             </div>
                                             <div class="form-group col-md-6">
@@ -124,6 +169,11 @@
                                                     </span><strong>Location:</strong> </label>
                                                 <input type="text" class="form-control" id="location" name="address"
                                                     placeholder="Location Name">
+                                                    <span class="text-danger">
+                                                        @error('address')
+                                                        {{$message}}
+                                                        @enderror
+                                                    </span>
 
                                             </div>
                                         </div>

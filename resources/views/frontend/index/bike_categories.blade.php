@@ -101,13 +101,24 @@
                                                     
                                                    
                                                     @else
-                                                    <a href="{{ route('booking',$bike->id) }}"
-                                                        class="primaryButton  btn-dcb p-2"
-                                                        style="border:1px solid red"><span><i
-                                                                class="fa fa-cart-plus">
-                                                            </i></span> 
-                                                            Book
-                                                            Now</a>
+                                                        @if($bike['category']['category_name'] == "Upcoming")
+                                                        <a href="{{ route('prebook',$bike->id) }}"
+                                                            class="primaryButton  btn-dcb p-2"
+                                                            style="border:1px solid red"><span><i
+                                                                    class="fa fa-cart-plus">
+                                                                </i>
+                                                                PreBook
+                                                                Now</a>
+                                                        @else
+                                                        
+                                                        <a href="{{ route('booking',$bike->id) }}"
+                                                    class="primaryButton  btn-dcb p-2"
+                                                    style="border:1px solid red"><span><i
+                                                            class="fa fa-cart-plus">
+                                                        </i>
+                                                        Book
+                                                        Now</a>
+                                                        @endif
                                                     @endif         
     
     

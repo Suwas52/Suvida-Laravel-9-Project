@@ -50,6 +50,18 @@ class PreBookingController extends Controller
             
                     return redirect()->back()->with($notification);
                 }
+
+                $request->validate([
+                'first_name' => ['required' ],
+                'last_name' => ['required'],
+                'email' => 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+                'phone_no'=>['required'],
+                'zone'=>['required'],
+                'district'=>['required'],
+                'city'=>['required'],
+                'address'=>['required'],
+                'model_color'=>['required'],
+                 ]);
         
                 PreBooking::insert([
                     'user_id'=>auth()->user()->id,
@@ -106,6 +118,17 @@ class PreBookingController extends Controller
         
         $notification = array(
             'message' => 'PreBooking Rejected Success',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }
+
+    public function RemovePrebook($id){
+        PreBooking::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'PreBooking Delete Success',
             'alert-type' => 'success'
         );
 

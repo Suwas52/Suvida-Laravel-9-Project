@@ -30,6 +30,19 @@ class TestRideController extends Controller
         
         $models= $request->model_name;
         $model = VehicleModel::where('model_name',$models)->first();
+
+        $request->validate([
+            'model_name' => ['required' ],
+            'first_name' => ['required' ],
+            'last_name' => ['required'],
+            'email' => 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+            'phone_no'=>'required|min:10|numeric',
+            'zone'=>['required'],
+            'district'=>['required'],
+            'city'=>['required'],
+            'address'=>['required'],
+            'license_no'=>['required'],
+        ]);
         
 
         TestRide::insert([

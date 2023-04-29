@@ -27,6 +27,18 @@ class BookingController extends Controller
     public function bookingSubmit(Request $request){
 
         $user = User::where('role','admin')->get();
+
+        $request->validate([
+            'first_name' => ['required' ],
+            'last_name' => ['required'],
+            'email' => 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+            'phone_no'=>['required'],
+            'zone'=>['required'],
+            'district'=>['required'],
+            'city'=>['required'],
+            'address'=>['required'],
+            'model_color'=>['required'],
+        ]);
         
         Booking::insert([
             'user_id'=>auth()->user()->id,

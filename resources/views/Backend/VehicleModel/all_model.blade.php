@@ -40,7 +40,7 @@
                                     <th>Model</th>
                                     <th>Image</th>
                                     <th>Displacement</th>
-                                    <th>Status</th>
+                                    <th>Price</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -52,16 +52,9 @@
                                     <td><img src="{{asset($model->model_thumbnail)}}" style="width:60px; height:50px"
                                             alt="model">
                                     </td>
-                                    <td>{{$model->displacement}}</td>
-                                    <td>@if($model->status == 1)
-                                        <a href="{{route('model.inactive',$model->id)}}"
-                                            class="badge rounded-pill bg-success text-light"><i
-                                                class="fa-solid fa-check"></i></a>
-
-                                        @else <a href="{{route('model.active',$model->id)}}"
-                                            class="badge rounded-pill bg-danger text-light ">
-                                            <i class="fa-solid fa-x"></i></a>
-                                        @endif
+                                    <td>{{$model->displacement}} cc</td>
+                                    <td>
+                                        Rs. {{$model->price}} 
                                     </td>
 
                                     <td>

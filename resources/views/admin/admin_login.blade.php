@@ -36,29 +36,29 @@
                 <div class="input-field ">
                     <span class="far fa-user p-2"></span>
                     <input type="text" id="email" name="email" placeholder="Email Address">
+                    
                 </div>
+                <span class="text-danger">
+                    @error('email')
+                    {{$message}}
+                    @enderror
+                </span>
             </div>
             <div class="form-group py-1 pb-2">
                 <label for="inputEmailAddress" class="form-label">Password</label>
                 <div class="input-field ">
                     <span class="fas fa-lock p-2"></span>
                     <input type="password" id="password" name="password" placeholder="Password">
-                    <button class="btn bg-white text-muted">
-                        <span class=" far fa-eye-slash"></span>
-                    </button>
+                    
+                    
                 </div>
+                <span class="text-danger">
+                    @error('password')
+                    {{$message}}
+                    @enderror
+                </span>
             </div>
-            <div class="d-flex align-items-start">
-                <div class="remember">
-                    <label class="option text-muted"> Remember me
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-                <div class="ml-auto">
-                    <a href="#" id="forgot">Forgot Password?</a>
-                </div>
-            </div>
+            
             <button class="btn btn-block text-center my-3">Log in</button>
         </form>
     </div>

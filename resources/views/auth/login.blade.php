@@ -69,14 +69,14 @@
                     </form>
                     <a href="{{route('password.request')}}" class="a">Forget Password</a>
                     {{-- <h5 class="l5">Sign Up Using</h5> --}}
-                    <ul class="lul">
+                    {{-- <ul class="lul">
                         <li>
                             <a href="#"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-google"></i></a>
                         </li> 
-                    </ul>
+                    </ul> --}}
                     <h4>Create account? <a href="{{route('register')}}">Sign Up</a></h4>
                 </div>
             </div>

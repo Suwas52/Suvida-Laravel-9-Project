@@ -220,18 +220,14 @@
                                                 <span>{{$ratings->count() }} Rating</span>
                                     </div>
 
+                                    @php
+                                    $now = Carbon\Carbon::now()->format('F')
+                                    @endphp
 
-
-                                    <ul class="social-icons mt-2">
-                                        <span class="primaryButton  btn-dcb p-2"
-                                            style="background-color: #d02f2f; color:#fff">View February
-                                            Offers</span>
-
-
-                                    </ul>
+                                    
                                 </div>
                                 <div class="short-desc">
-                                    <span>Don't miss out on the best offers this February</span>
+                                    <span>Don't miss out on the best Booking offers this {{$now}} </span>
                                 </div>
                             </div>
                         </div>
@@ -295,7 +291,7 @@
                                 <hr>
                                 <div class="span" style="color:rgb(199, 80, 25)">
                                     <span>Rs.
-                                        <del>3,99,900 </del> &nbsp; 3,59,900
+                                        {{$models->price}}
                                     </span>
                                 </div>
 
@@ -321,6 +317,9 @@
                             <div class=" bike-content" style="padding: 20px; margin: 10px; line-height: 40px;">
 
                                 <h5> <strong>{{$models->model_name}}</strong> </h5>
+
+                                <span>{{$models['category']['category_name']}} </span>
+                                <span>{{$models['vehicle']['vehicle_name']}}</span>
 
                                 <div class="span" style="color:rgb(199, 80, 25)">
                                     <ul class="social-icons mt-2">
@@ -698,8 +697,8 @@
                                 </div>
 
 
-                                <div class="col-md-6">
-
+                                <div class="col-md-12">
+                                    <span>{{$models->description}}</span>
                                 </div>
 
 

@@ -32,7 +32,7 @@ class IndexController extends Controller
         $popular_bikes = VehicleModel::where('category_id',$popular_category->id)->orderBy('model_name','ASC')->get();
         $off_road = VehicleModel::where('body_type','Off Road')->orderBy('model_name','ASC')->get();
         $sport = VehicleModel::where('body_type','Sport')->orderBy('model_name','ASC')->get();
-        $best_mileage =VehicleModel::whereBetween('mileage', [50,80] )->orderBy('model_name','ASC')->get();
+        $best_mileage =VehicleModel::whereBetween('mileage', [50,80] )->where('vehicle_id',$bike->id)->orderBy('model_name','ASC')->get();
         $cruiser =VehicleModel::where('body_type','Cruiser' )->orderBy('model_name','ASC')->get();
         $commuter =VehicleModel::where('body_type','Commuter' )->orderBy('model_name','ASC')->get();
         $category_1_model = VehicleModel::where('category_id',$category_1->id)->orderBy('model_name','ASC')->get();
