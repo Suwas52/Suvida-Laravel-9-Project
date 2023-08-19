@@ -573,6 +573,12 @@ header
         display: none;
     }
 }
+@media (max-width: 991px) {
+    .header-area .main-nav .nav li {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
 
 @media (max-width: 767px) {
     .header-area .main-nav .logo {
@@ -615,11 +621,11 @@ header
     .header-area .main-nav .nav li:first-child {
         border-top: 1px solid #eee;
     }
-    .header-area .main-nav .nav li:last-child {
+    /* .header-area .main-nav .nav li:last-child {
         width: 100%;
         background-color: #ed563b;
         color: #fff;
-    }
+    } */
 
     .header-area.header-sticky .nav {
         margin-top: 80px !important;
@@ -699,20 +705,32 @@ banner
     position: relative;
 }
 
-#bg-video {
+/* #bg-video {
     min-width: 100%;
     min-height: 100vh;
     max-width: 100%;
     max-height: 100vh;
     object-fit: cover;
     z-index: -1;
-}
+} */
 
+/* .img-banner {
+    min-width: 100%;
+    min-height: 100vh;
+    max-width: 100%;
+    max-height: 100vh;
+    object-fit: cover;
+    z-index: -2;
+    margin-bottom: 10px;
+} */
+/* 
 #bg-video::-webkit-media-controls {
     display: none !important;
-}
-
-.video-overlay {
+} */
+/* .main {
+    position: relative;
+} */
+.main .video-overlay {
     position: absolute;
     background-color: rgba(22, 28, 34, 0.8);
     top: 0;
@@ -721,7 +739,7 @@ banner
     width: 100%;
 }
 
-.main-banner .caption {
+.main .caption {
     text-align: center;
     position: absolute;
     width: 80%;
@@ -730,7 +748,7 @@ banner
     transform: translate(-50%, -50%);
 }
 
-.main-banner .caption h6 {
+.main .caption h6 {
     margin-top: 0px;
     font-size: 16px;
     text-transform: uppercase;
@@ -739,7 +757,7 @@ banner
     letter-spacing: 0.5px;
 }
 
-.main-banner .caption h2 {
+.main .caption h2 {
     margin-top: 30px;
     margin-bottom: 25px;
     font-size: 45px;
@@ -749,7 +767,7 @@ banner
     letter-spacing: 1px;
 }
 
-.main-banner .caption h2 em {
+.main .caption h2 em {
     font-style: normal;
     color: #ed563b;
     font-weight: 900;
@@ -1327,9 +1345,16 @@ responsive
 */
 
 @media (max-width: 992px) {
+    .header-area .logo {
+        height: 60px;
+        width: 60px;
+        margin-left: 0px;
+    }
+
     .main-banner .caption h2 {
         font-size: 64px;
     }
+
     #features {
         margin-bottom: 110px;
     }
@@ -1354,7 +1379,15 @@ responsive
     }
 }
 
+@meida (max-width:790px) {
+}
+
 @media (max-width: 450px) {
+    .header-area .logo {
+        height: 50px;
+        width: 50px;
+        margin-left: 50px;
+    }
     .feature-item .right-content a.text-button {
         margin-left: 130px;
     }

@@ -14,12 +14,12 @@
 
     <title>Suvida</title>
 
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/bootstrap.min.css') }}" />
 
-    <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/font-awesome.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/font-awesome.css') }}" />
 
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}" />
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/login.css')}}" />
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/login.css') }}" />
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </head>
@@ -44,9 +44,9 @@
 
     <!-- ***** Main Banner Area Start ***** -->
     <div class="main-banner" id="top">
-        <video autoplay muted loop id="bg-video">
-            <source src="{{asset('frontend/assets/images/video.mp4')}}" type="video/mp4" />
-        </video>
+        <div class="banner">
+            <img class="img-banner" src="{{ asset('frontend/assets/images/Crossfire-RM-250.jpg') }}" alt="">
+        </div>
 
         <div class="video-overlay header-text">
             <div class="loginBox">
@@ -55,19 +55,19 @@
                     <form method="POST" id="myForm" action="{{ route('login') }}">
                         @csrf
                         <div class="inputBox form-group">
-                            <input type="text" id="email" name="email" placeholder="Email"  />
+                            <input type="text" id="email" name="email" placeholder="Email" />
                             <span><i class="fa fa-envelope"></i></span>
                             <x-input-error :messages="$errors->get('email')" class="mt-2 " />
                         </div>
                         <div class="inputBox form-group">
-                            <input type="password" id="password" name="password" placeholder="Password"  />
+                            <input type="password" id="password" name="password" placeholder="Password" />
                             <span><i class="fa fa-lock"></i></span>
                             <x-input-error :messages="$errors->get('password')" class="mt-2 " />
                         </div>
 
                         <input type="submit" name="login" value="Login" />
                     </form>
-                    <a href="{{route('password.request')}}" class="a">Forget Password</a>
+                    <a href="{{ route('password.request') }}" class="a">Forget Password</a>
                     {{-- <h5 class="l5">Sign Up Using</h5> --}}
                     {{-- <ul class="lul">
                         <li>
@@ -77,7 +77,7 @@
                             <a href="#"><i class="fa fa-google"></i></a>
                         </li> 
                     </ul> --}}
-                    <h4>Create account? <a href="{{route('register')}}">Sign Up</a></h4>
+                    <h4>Create account? <a href="{{ route('register') }}">Sign Up</a></h4>
                 </div>
             </div>
         </div>
@@ -95,84 +95,84 @@
     <!-- serachbar -->
 
     <!-- jQuery -->
-    <script src="{{asset('frontend/assets/js/jquery-2.1.0.min.js')}}"></script>
+    <script src="{{ asset('frontend/assets/js/jquery-2.1.0.min.js') }}"></script>
 
     <!-- Bootstrap -->
-    <script src="{{asset('frontend/assets/js/popper.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('frontend/assets/js/popper.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}"></script>
 
     <!-- Plugins -->
-    <script src="{{asset('frontend/assets/js/scrollreveal.min.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/waypoints.min.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/jquery.counterup.min.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/imgfix.min.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/mixitup.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/accordions.js')}}"></script>
+    <script src="{{ asset('frontend/assets/js/scrollreveal.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/imgfix.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/mixitup.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/accordions.js') }}"></script>
 
     <!-- Global Init -->
-    <script src="{{asset('frontend/assets/js/custom.js')}}"></script>
-    <script src="{{asset('frontend/assets/js/script.js')}}"></script>
+    <script src="{{ asset('frontend/assets/js/custom.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/script.js') }}"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <script src="{{asset('backend/assets/js/validate.min.js')}}"></script>
+    <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
     <script>
-    @if(Session::has('message'))
-    var type = "{{ Session::get('alert-type','info') }}"
-    switch (type) {
-        case 'info':
-            toastr.info(" {{ Session::get('message') }} ");
-            break;
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
 
-        case 'success':
-            toastr.success(" {{ Session::get('message') }} ");
-            break;
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
 
-        case 'warning':
-            toastr.warning(" {{ Session::get('message') }} ");
-            break;
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
 
-        case 'error':
-            toastr.error(" {{ Session::get('message') }} ");
-            break;
-    }
-    @endif
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
     </script>
 
     <script type="text/javascript">
-    $(document).ready(function() {
-        $('#myForm').validate({
-            rules: {
-                email: {
-                    required: true,
-                },
-                password: {
-                    required: true,
-                },
+        $(document).ready(function() {
+            $('#myForm').validate({
+                rules: {
+                    email: {
+                        required: true,
+                    },
+                    password: {
+                        required: true,
+                    },
 
-            },
-            messages: {
-                email: {
-                    required: 'Please Enter Email ',
                 },
-                password: {
-                    required: 'Please Enter Password ',
-                },
+                messages: {
+                    email: {
+                        required: 'Please Enter Email ',
+                    },
+                    password: {
+                        required: 'Please Enter Password ',
+                    },
 
-            },
-            errorElement: 'danger',
-            errorPlacement: function(error, element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight: function(element, errorClass, validClass) {
-                $(element).addClass('is-invalid');
-            },
-            unhighlight: function(element, errorClass, validClass) {
-                $(element).removeClass('is-invalid');
-            },
+                },
+                errorElement: 'danger',
+                errorPlacement: function(error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                },
+            });
         });
-    });
     </script>
 </body>
 

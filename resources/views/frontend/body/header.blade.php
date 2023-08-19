@@ -4,7 +4,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <a href="{{route('main')}}" class="logo"><img src="{{asset('frontend/assets/images/logo.png')}}"
-                            style="height: 60px; width: 60px; margin-left: -50px" alt="" /><em style="
+                            style="height: 60px; width: 60px; margin-left: -50px" alt="" /><em class="logo-name" style="
                     position: absolute;
                     width: 69px;
                     height: 34px;
